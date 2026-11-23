@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1018">
+<title>AZE Mail – Vorschau</title>
+<style>
+:root{color-scheme:dark;--bg:#090e16;--panel:#121b29;--panel2:#182438;--line:#26364d;--muted:#9aa9bc;--text:#f4f7fb;--blue:#4d9dff;--cyan:#4dd6d0;--violet:#9c7bff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#172e4b 0,transparent 38%),radial-gradient(ellipse at 100% 35%,#252044 0,transparent 35%),var(--bg);color:var(--text);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.wrap{max-width:760px;margin:auto;padding:26px 18px 100px}.top{display:flex;align-items:center;justify-content:space-between;margin:12px 2px 34px}.brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:750;letter-spacing:.2px}.logo{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-weight:900;box-shadow:0 8px 28px #4d9dff44}.avatar{border:1px solid var(--line);background:#182438;border-radius:50%;width:42px;height:42px;display:grid;place-items:center;color:#cbd8e8}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(30px,7vw,46px);line-height:1.06;margin:10px 0 12px}.hero p{color:var(--muted);line-height:1.55;margin:0;max-width:560px}.status{display:flex;align-items:center;gap:9px;background:#12251f;border:1px solid #24513e;color:#b8f4d5;padding:10px 13px;border-radius:14px;margin:24px 0 26px;font-size:13px}.dot{width:8px;height:8px;border-radius:50%;background:#53d69a;box-shadow:0 0 12px #53d69a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.tile{min-height:150px;text-align:left;border:1px solid var(--line);border-radius:22px;padding:19px;background:linear-gradient(145deg,#19263a,#101824);color:var(--text);cursor:pointer;transition:.18s;box-shadow:0 10px 30px #0002}.tile:active{transform:scale(.98)}.tile .ico{width:43px;height:43px;border-radius:14px;display:grid;place-items:center;font-size:22px;margin-bottom:17px;background:#24466c}.tile:nth-child(2) .ico{background:#30305e}.tile:nth-child(3) .ico{background:#174c4b}.tile:nth-child(4) .ico{background:#49385d}.tile strong{display:block;font-size:18px}.tile small{display:block;color:var(--muted);margin-top:6px;line-height:1.4}
+.section{margin-top:28px;border:1px solid var(--line);border-radius:20px;background:#111a27cc;padding:18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section h2{font-size:16px;margin:0}.pill{font-size:11px;color:#b9d8ff;border:1px solid #31577e;background:#162b42;padding:6px 9px;border-radius:20px}.connection{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:14px}.connection b{color:var(--text);font-weight:600}.actions{display:flex;gap:8px;margin-top:14px}.choice{flex:1;border:1px solid var(--line);background:#182438;color:#dce8f6;border-radius:12px;padding:11px 8px;font-size:13px}.choice.active{border-color:var(--blue);background:#183457;color:#fff}
+.note{color:#8797ab;font-size:12px;line-height:1.5;margin:18px 3px}.bottom{position:fixed;bottom:0;left:0;right:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:#0b111beF;border-top:1px solid #26364d;backdrop-filter:blur(18px)}.nav{max-width:600px;margin:auto;display:flex;justify-content:space-around}.nav button{background:none;border:0;color:#9aa9bc;font-size:12px;padding:4px;display:grid;gap:5px;justify-items:center}.nav span{font-size:19px}.nav button:first-child{color:#80baff}
+.overlay{display:none;position:fixed;inset:0;background:#05080edb;z-index:5;padding:24px;align-items:center;justify-content:center}.dialog{max-width:440px;width:100%;background:#142033;border:1px solid #344967;border-radius:22px;padding:22px}.dialog h3{margin:0 0 8px}.dialog p{color:var(--muted);line-height:1.5}.close{border:0;border-radius:12px;background:linear-gradient(90deg,var(--blue),var(--violet));color:white;padding:12px 18px;font-weight:700}
+@media(max-width:420px){.wrap{padding:20px 15px 100px}.grid{gap:10px}.tile{min-height:140px;padding:15px}.tile strong{font-size:16px}.hero p{font-size:14px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><div class="brand"><div class="logo">AZE</div><span>AZE Mail</span></div><div class="avatar">A</div></header>
+<section class="hero"><div class="eyebrow">Dein privater Arbeitsbereich</div><h1>Alles an einem<br>Ort.</h1><p>Deine E-Mail-Adressen, dein Browser und deine Lieblingsshops – übersichtlich in einer Anwendung.</p></section>
+<div class="status"><i class="dot"></i><span>Konzept-Vorschau · Noch keine Mail- oder Proxy-Verbindung eingerichtet</span></div>
+<section class="grid">
+<button class="tile" onclick="show('Mail','Hier entsteht dein Posteingang mit mehreren verwaltbaren Wunschadressen. Empfang und Versand werden später mit einem E-Mail-Anbieter verbunden.')"><div class="ico">✉</div><strong>Mail</strong><small>Posteingang und Adressen</small></button>
+<button class="tile" onclick="show('Browser','Hier entsteht der integrierte Browser mit Tabs, Adresszeile und den zwei auswählbaren Verbindungswegen.')"><div class="ico">◎</div><strong>Browser</strong><small>Webseiten direkt öffnen</small></button>
+<button class="tile" onclick="show('Shopping','Hier kannst du später deine Lieblingsshops als Kacheln ablegen und im Browser öffnen.')"><div class="ico">🛍</div><strong>Shopping</strong><small>Deine Shops auf einen Blick</small></button>
+<button class="tile" onclick="show('Verwaltung','Hier verwaltest du Login, PIN, Wunschadressen, Datenschutz und Sitzungen.')"><div class="ico">⚙</div><strong>Verwaltung</strong><small>Login, PIN und Datenschutz</small></button>
+</section>
+<section class="section"><div class="sectionhead"><h2>Browser-Verbindung</h2><span class="pill">Vorschau</span></div><div class="connection"><span>Ausgewählter Weg</span><b id="way">Direktverbindung</b></div><div class="actions"><button class="choice" id="server" onclick="pick('Deutscher Server')">Deutscher Server</button><button class="choice active" id="direct" onclick="pick('Direktverbindung')">Direktverbindung</button></div><p class="note">Der Schalter zeigt in dieser Vorschau nur die geplante Bedienung. Er leitet noch keinen Datenverkehr um und ändert deine IP-Adresse nicht.</p></section>
+<p class="note">AZE Mail · Früher Konzeptstand. Funktionen, Design und technische Umsetzung bleiben gemeinsam veränderbar.</p>
+</main>
+<footer class="bottom"><nav class="nav"><button onclick="show('Start','Du bist auf der AZE-Mail-Startseite.')"><span>⌂</span>Start</button><button onclick="show('Mail','Hier entsteht dein Posteingang.')"><span>✉</span>Mail</button><button onclick="show('Browser','Hier entsteht dein Browser.')"><span>◎</span>Browser</button><button onclick="show('Mehr','Shopping und Verwaltung werden hier erreichbar sein.')"><span>•••</span>Mehr</button></nav></footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)hide()"><div class="dialog"><h3 id="title"></h3><p id="desc"></p><button class="close" onclick="hide()">Verstanden</button></div></div>
+<script>
+function show(t,d){document.getElementById('title').textContent=t;document.getElementById('desc').textContent=d;document.getElementById('overlay').style.display='flex'}
+function hide(){document.getElementById('overlay').style.display='none'}
+function pick(v){document.getElementById('way').textContent=v;document.getElementById('server').classList.toggle('active',v==='Deutscher Server');document.getElementById('direct').classList.toggle('active',v==='Direktverbindung')}
+</script>
+</body></html>
