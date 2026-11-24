@@ -196,3 +196,13 @@ Die gewünschte Domain für AZE Mail lautet **`aze-mail.de`**. Sie ist beschloss
 - **Dokumentation:** Diese `README.md` ist die zentrale Beschreibung des vollständigen Projektziels und der getroffenen Grundsatzentscheidungen. Größere Änderungen und der jeweilige Umsetzungsstand werden zusätzlich in `PROJECT_STATUS.md` dokumentiert.
 
 **Wichtig für jeden weiteren Arbeitsschritt:** Vor Änderungen am Code zuerst den aktuellen Repository-Stand prüfen. Danach gezielt ergänzen, testen und committen. Bereits vereinbarte Ziele und Entscheidungen bleiben bestehen, sofern der Nutzer sie nicht ausdrücklich ändert.
+
+
+## 12. Einmal-SMS für gelegentliche Registrierungen
+
+Auf ausdrücklichen Wunsch ist im Frontend ein Bereich **„Einmal-SMS“** vorgesehen. Er enthält ausschließlich drei externe Anbieterlinks in dieser Reihenfolge:
+1. **Quackr** – erste Wahl, weil PayPal laut bisheriger Prüfung angeboten wird; Nummern werden gemietet, Preis und Mindestdauer vor dem Kauf prüfen.
+2. **SMS-Virtual** – mögliche Einmalnummer; deutscher Preis, Verfügbarkeit und PayPal-Zahlung vor dem Kauf prüfen.
+3. **NumberOTP** – Kurzzeit-Aktivierung; PayPal ist nicht bestätigt, Zahlungsmethoden und deutscher Preis vorab prüfen.
+
+AZE Mail integriert ausdrücklich **keinen eigenen SMS-Empfang**: keine eigene Nummer, keine SMS-API, keine SMS-Speicherung und keine kostenpflichtige Buchung durch AZE Mail. Die Links öffnen die Anbieter-Webseiten extern. Die Reihenfolge ist eine Orientierung, keine Garantie für Preis, Verfügbarkeit oder Zustellgeschwindigkeit. Kein Anbieter garantiert einen Registrierungscode innerhalb von zwei Minuten; Plattformen können virtuelle Nummern ablehnen. Nur für unkritische Registrierungen verwenden, nicht für Bank-, Zahlungs- oder wichtige Konten.
