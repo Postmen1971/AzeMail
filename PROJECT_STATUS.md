@@ -2,7 +2,7 @@
 
 **Stand:** 24.11.2026  
 **Repository:** `Postmen1971/AzeMail`  
-**Phase:** Funktions-Prototyp / weitere Backend-Planung
+**Phase:** HTML-Funktionsprototyp / Anbieterprüfung und Backend-Planung
 
 ## Aktueller Stand
 Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeichert. Die GitHub-Pages-Veröffentlichung muss im Repository aktiviert sein, damit die Seite öffentlich über Safari erreichbar ist.
@@ -68,3 +68,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **24.11.2026:** Bereich „Einmal-SMS“ als reine externe Linkliste mit Quackr, SMS-Virtual und NumberOTP ergänzt. Keine SMS-API, keine eigene Nummer, keine SMS-Speicherung und keine Zahlung über AZE Mail. Reihenfolge und Einschränkungen sind im Frontend erklärt; Verfügbarkeit, Preise und Zustellzeiten sind nicht garantiert.
 
 - **24.11.2026:** README und Projektstatus vereinheitlicht: Polpo Mail zurückgestellt, 0-Euro-Start bestätigt, Anbieterentscheidung offen; erste technische Anbieterprüfung dokumentiert.
+- **24.11.2026:** Widersprüchliche Anbieterangaben bereinigt: Polpo Mail ist zurückgestellt, `aze-mail.de` nur Wunschdomain; GMX/IMAP-SMTP als erster technischer Testkandidat, Tuta und Proton Free wegen fehlender passender Drittanbieter-Anbindung vorerst nicht geeignet.
