@@ -31,7 +31,14 @@
 <div class="eyebrow">AZE Mail</div><h1>Deine Mail-Adressen</h1><p class="muted">Adressen verwalten und später mit echten Postfächern verbinden.</p>
 <div class="card"><h2>Neue Wunschadresse vormerken</h2><p class="hint">Trage einen gewünschten Namen ein. Die Adresse wird hier zunächst nur auf diesem Gerät gespeichert – sie wird noch nicht beim Mailanbieter angelegt.</p><div class="formrow"><input id="localName" class="input" placeholder="z. B. aze.projekt" autocomplete="off"><button class="btn primary" onclick="addAddress()">Hinzufügen</button></div><p class="hint">Vorschau-Endung: @aze-mail.de (Domain und Verfügbarkeit noch nicht bestätigt)</p></div>
 <div class="card"><div class="row"><h2>Meine Adressen</h2><span class="tag" id="addrCount">0</span></div><div id="addresses" class="empty">Noch keine Adressen vorgemerkt.</div></div>
-<div class="card"><h2>Posteingang</h2><div class="empty">Noch kein echter Posteingang verbunden.<br><small>Als nächstes benötigen wir einen E-Mail-Anbieter und ein sicheres Backend.</small></div></div>
+<div class="card">
+<div class="row"><h2>Posteingang</h2><span class="tag">Ansicht geplant</span></div>
+<p class="hint">Ein gemeinsamer Posteingang mit Filter für jede einzelne Empfängeradresse.</p>
+<label for="mailAddressFilter" class="hint">Nach Empfängeradresse filtern</label>
+<select id="mailAddressFilter" class="input" style="margin-top:7px" onchange="setMailFilter(this.value)">
+<option value="all">Alle Adressen anzeigen</option></select>
+<div id="mailInbox" class="empty">Noch kein echter Posteingang verbunden.<br><small>Nach der Anbindung eines Mailanbieters erscheinen hier deine Nachrichten. Du kannst dann alle zusammen oder gefiltert nach Adresse lesen.</small></div>
+</div>
 </section>
 
 <section id="browser" class="page">
@@ -66,13 +73,29 @@ const KEY='aze_mail_proto_v1';
 let data={addresses:[],shops:[{name:'Amazon',url:'https://www.amazon.de'},{name:'eBay',url:'https://www.ebay.de'},{name:'markt.de',url:'https://www.markt.de'}],way:'Direktverbindung'};
 try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)data={...data,...saved}}catch(e){}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){alert('Speichern auf diesem Gerät war nicht möglich.')}}
-function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo(0,0);if(id==='mail')renderAddresses();if(id==='shopping')renderShops()}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo(0,0);if(id==='mail'){renderAddresses();renderMailFilter();}if(id==='shopping')renderShops()}
 function modal(t,m){document.getElementById('modalTitle').textContent=t;document.getElementById('modalText').textContent=m;document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
 function addAddress(){let n=document.getElementById('localName').value.trim().toLowerCase();if(!/^[a-z0-9._-]{2,40}$/.test(n)){modal('Name prüfen','Bitte 2 bis 40 Zeichen verwenden: Buchstaben, Zahlen, Punkt, Bindestrich oder Unterstrich.');return}let email=n+'@aze-mail.de';if(data.addresses.some(a=>a.email===email)){modal('Schon vorhanden','Diese Adresse ist bereits vorgemerkt.');return}data.addresses.push({email,active:true});persist();document.getElementById('localName').value='';renderAddresses()}
 function toggleAddress(i){data.addresses[i].active=!data.addresses[i].active;persist();renderAddresses()}
 function deleteAddress(i){if(confirm('Diese vorgemerkte Adresse wirklich löschen?')){data.addresses.splice(i,1);persist();renderAddresses()}}
-function renderAddresses(){let el=document.getElementById('addresses');document.getElementById('addrCount').textContent=data.addresses.length;if(!data.addresses.length){el.className='empty';el.textContent='Noch keine Adressen vorgemerkt.';return}el.className='';el.innerHTML='';data.addresses.forEach((a,i)=>{let d=document.createElement('div');d.className='item';let info=document.createElement('div');let b=document.createElement('b');b.textContent=a.email;let sm=document.createElement('small');sm.textContent='Nur lokal vorgemerkt – kein echtes Postfach';info.append(b,sm);let controls=document.createElement('div');controls.style.display='flex';controls.style.gap='6px';let t=document.createElement('button');t.className='btn ghost';t.textContent=a.active?'Pausieren':'Aktivieren';t.onclick=()=>toggleAddress(i);let del=document.createElement('button');del.className='btn danger';del.textContent='×';del.setAttribute('aria-label','Löschen');del.onclick=()=>deleteAddress(i);controls.append(t,del);d.append(info,controls);el.append(d)})}
+function renderAddresses(){let el=document.getElementById('addresses');document.getElementById('addrCount').textContent=data.addresses.length;renderMailFilter();if(!data.addresses.length){el.className='empty';el.textContent='Noch keine Adressen vorgemerkt.';return}el.className='';el.innerHTML='';data.addresses.forEach((a,i)=>{let d=document.createElement('div');d.className='item';let info=document.createElement('div');let b=document.createElement('b');b.textContent=a.email;let sm=document.createElement('small');sm.textContent='Nur lokal vorgemerkt – kein echtes Postfach';info.append(b,sm);let controls=document.createElement('div');controls.style.display='flex';controls.style.gap='6px';let t=document.createElement('button');t.className='btn ghost';t.textContent=a.active?'Pausieren':'Aktivieren';t.onclick=()=>toggleAddress(i);let del=document.createElement('button');del.className='btn danger';del.textContent='×';del.setAttribute('aria-label','Löschen');del.onclick=()=>deleteAddress(i);controls.append(t,del);d.append(info,controls);el.append(d)})}
+let selectedMailAddress='all';
+function setMailFilter(value){selectedMailAddress=value;renderMailFilter();renderInboxPlaceholder()}
+function renderMailFilter(){
+ const select=document.getElementById('mailAddressFilter');if(!select)return;
+ const previous=selectedMailAddress;select.innerHTML='';
+ const all=document.createElement('option');all.value='all';all.textContent='Alle Adressen anzeigen';select.append(all);
+ data.addresses.forEach(a=>{const opt=document.createElement('option');opt.value=a.email;opt.textContent=a.email;select.append(opt)});
+ if(previous!=='all'&&data.addresses.some(a=>a.email===previous))select.value=previous;else{selectedMailAddress='all';select.value='all'}
+ renderInboxPlaceholder();
+}
+function renderInboxPlaceholder(){
+ const box=document.getElementById('mailInbox');if(!box)return;
+ box.className='empty';
+ if(selectedMailAddress==='all')box.innerHTML='Noch kein echter Posteingang verbunden.<br><small>Nach der Anbindung eines Mailanbieters erscheinen hier deine Nachrichten aus allen Adressen.</small>';
+ else box.textContent='Filter aktiv: '+selectedMailAddress+'. Noch kein echter Posteingang verbunden.';
+}
 function validUrl(raw){try{let u=new URL(raw.includes('://')?raw:'https://'+raw);if(!['http:','https:'].includes(u.protocol))return null;return u.href}catch(e){return null}}
 let lastUrl='';
 function openSite(){let v=validUrl(document.getElementById('url').value.trim());if(!v){modal('Webadresse prüfen','Bitte eine gültige Adresse mit Domain eingeben.');return}lastUrl=v;document.getElementById('browserResult').className='empty';document.getElementById('browserResult').textContent='Versuche, die Seite innerhalb der Anwendung zu laden: '+v;document.getElementById('externalBtn').style.display='block';let old=document.getElementById('siteFrame');if(old)old.remove();let wrap=document.createElement('div');wrap.className='framewrap';let frame=document.createElement('iframe');frame.id='siteFrame';frame.src=v;frame.title='Externe Webseite';frame.referrerPolicy='no-referrer';frame.sandbox='allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox';wrap.append(frame);document.getElementById('browserResult').after(wrap)}
@@ -81,6 +104,6 @@ function setWay(w){data.way=w;persist();renderWay()}
 function renderWay(){['homeWay','currentWay'].forEach(id=>document.getElementById(id).textContent=data.way);document.getElementById('serverChoice').classList.toggle('active',data.way==='Deutscher Server');document.getElementById('directChoice').classList.toggle('active',data.way==='Direktverbindung')}
 function addShop(){let n=document.getElementById('shopName').value.trim(),u=validUrl(document.getElementById('shopUrl').value.trim());if(!n||!u){modal('Angaben fehlen','Bitte Shopname und gültige Webadresse eintragen.');return}data.shops.push({name:n,url:u});persist();document.getElementById('shopName').value='';document.getElementById('shopUrl').value='';renderShops()}
 function renderShops(){let el=document.getElementById('shops');el.innerHTML='';data.shops.forEach((s,i)=>{let b=document.createElement('button');b.className='shop';let name=document.createElement('b');name.textContent=s.name;let small=document.createElement('small');small.textContent=new URL(s.url).hostname;b.append(name,small);b.onclick=()=>{lastUrl=s.url;window.open(s.url,'_blank','noopener,noreferrer')};el.append(b)})}
-function clearLocal(){if(confirm('Alle lokal gespeicherten AZE-Adressen und Shop-Favoriten löschen?')){localStorage.removeItem(KEY);data={addresses:[],shops:[],way:'Direktverbindung'};renderAddresses();renderShops();renderWay();modal('Lokale Daten gelöscht','Die AZE-Prototypdaten wurden aus diesem Browser entfernt.')}}
+function clearLocal(){if(confirm('Alle lokal gespeicherten AZE-Adressen und Shop-Favoriten löschen?')){localStorage.removeItem(KEY);data={addresses:[],shops:[],way:'Direktverbindung'};renderAddresses();renderMailFilter();renderShops();renderWay();modal('Lokale Daten gelöscht','Die AZE-Prototypdaten wurden aus diesem Browser entfernt.')}}
 renderAddresses();renderShops();renderWay();
 </script></body></html>
