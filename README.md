@@ -13,6 +13,9 @@ Zusätzlich ist ein integrierter Browser geplant. Als weiterer Vorschlag kam ein
 ## 1. Vorgeschlagene Hauptbereiche
 
 ### Mail
+- **Festgelegtes Bedienmodell:** ein gemeinsamer Posteingang für alle Adressen plus Filteransicht für jede einzelne Empfängeradresse.
+- Jede eingehende Nachricht muss der Empfängeradresse zugeordnet werden, an die sie gesendet wurde.
+- Beim Antworten soll standardmäßig die passende Empfängeradresse als Absender vorausgewählt werden.
 - E-Mails direkt in AZE Mail lesen und empfangen.
 - Nachrichten beantworten und neue E-Mails schreiben.
 - Ordner bzw. Ansichten: Posteingang, Gesendet und Papierkorb.
@@ -147,7 +150,7 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 ## 10. Noch offene Fragen
 - Ist `aze-mail.de` verfügbar und bezahlbar?
 - Welcher E-Mail-Anbieter erfüllt die Anforderungen?
-- Wie viele echte Postfächer bzw. Aliase werden benötigt?
+- Wie viele echte Postfächer bzw. Aliase werden benötigt und welcher Anbieter unterstützt das gewählte gemeinsame Posteingangsmodell?
 - Welcher Hosting-Anbieter wird verwendet?
 - Wie wird der deutsche Browser-Proxy technisch umgesetzt?
 - Wie genau soll der direkte Verbindungsweg aussehen?
