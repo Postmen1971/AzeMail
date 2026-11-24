@@ -1,6 +1,6 @@
 # AZE Mail – Projektstatus
 
-**Stand:** 23.11.2026  
+**Stand:** 24.11.2026  
 **Repository:** `Postmen1971/AzeMail`  
 **Phase:** Funktions-Prototyp / weitere Backend-Planung
 
@@ -37,6 +37,11 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Zusätzlich Filter, um Nachrichten einer einzelnen Empfängeradresse anzuzeigen.
 - Nachrichten werden intern mit ihrer Empfängeradresse verknüpft; beim Antworten soll diese Adresse als Absender vorausgewählt werden.
 
+## Domainentscheidung
+- `aze-mail.de` ist als bevorzugte Projekt-Domain festgelegt.
+- Die Domain ist noch nicht gekauft oder registriert; Verfügbarkeit und Preis sind noch zu prüfen.
+- Vor der Registrierung bei Polpo soll schriftlich geklärt werden, ob die Nutzung für unser privates AZE-Mail-Projekt zulässig ist. Die aktuellen Polpo-Nutzungsbedingungen beschreiben den Dienst als für Unternehmen und Organisationen bestimmt.
+
 ## Als Nächstes
 1. Nutzer testet die neue Mail-Oberfläche auf iPhone/Safari.
 2. Domain und E-Mail-Anbieter vergleichen: Aliase, echte Postfächer, IMAP/SMTP oder API, Empfang und Versand.
@@ -51,3 +56,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **23.11.2026:** Keine echte Mailserver- oder Proxy-Funktion behauptet; Backend-Aufgaben dokumentiert.
 - **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
 - **24.11.2026:** Polpo Mail als Anbieter für die nächste Test- und Integrationsphase ausgewählt; Gratis-Tarifgrenzen und Sicherheits-/Backupvorbehalte dokumentiert.
+- **24.11.2026:** `aze-mail.de` als bevorzugte Projekt-Domain festgelegt; Registrierung erst nach Verfügbarkeits-/Preisprüfung und Klärung der Polpo-Nutzungsbedingungen.
