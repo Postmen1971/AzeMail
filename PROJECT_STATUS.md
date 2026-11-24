@@ -26,9 +26,9 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - localStorage ist keine Cookie-Datei, speichert aber Daten dauerhaft im Browserprofil des Geräts. Löschen der Website-Daten kann sie entfernen.
 
 ## Ausgewählter E-Mail-Anbieter
-- Polpo Mail wurde als Anbieter für die nächste Test- und Integrationsphase ausgewählt.
+- Polpo Mail ist nur noch eine mögliche spätere Option, nicht endgültig ausgewählt. Der Dienst verlangt eine eigene Domain und richtet sich laut Nutzungsbedingungen an Unternehmen/Organisationen.
 - Laut aktuellem Gratis-Tarif: bis zu 10 Postfächer mit je 1 GB, 5 Aliasse und Catch-all pro Domain; API, IMAP und SMTP.
-- Eigene Domain ist Voraussetzung. Die Alias-Grenze und Catch-all-Absenderfähigkeit müssen für unser gewünschtes Adressmodell geprüft werden.
+- Eigene Domain ist Voraussetzung; daher passt Polpo nicht zum aktuellen 0-Euro-Start ohne Domainkauf. Keine Registrierung, bevor die Zulässigkeit der privaten Nutzung geklärt ist.
 - Vor produktiver Nutzung: Registrierung und Domain-Verifizierung, API-Test, Empfangs-/Versandtest, Export-/Backupkonzept und Datenschutzprüfung.
 - Keine API-Tokens oder Zugangsdaten im Frontend oder öffentlichen Repository speichern.
 
@@ -37,14 +37,15 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Zusätzlich Filter, um Nachrichten einer einzelnen Empfängeradresse anzuzeigen.
 - Nachrichten werden intern mit ihrer Empfängeradresse verknüpft; beim Antworten soll diese Adresse als Absender vorausgewählt werden.
 
-## Domainentscheidung
-- `aze-mail.de` ist als bevorzugte Projekt-Domain festgelegt.
-- Die Domain ist noch nicht gekauft oder registriert; Verfügbarkeit und Preis sind noch zu prüfen.
-- Vor der Registrierung bei Polpo soll schriftlich geklärt werden, ob die Nutzung für unser privates AZE-Mail-Projekt zulässig ist. Die aktuellen Polpo-Nutzungsbedingungen beschreiben den Dienst als für Unternehmen und Organisationen bestimmt.
+## Kostenentscheidung
+- Verbindliches Arbeitsziel: zunächst 0 € Kosten; keine Domain und keinen Tarif kaufen.
+- `aze-mail.de` bleibt eine Wunschdomain, wird aber vorerst nicht registriert.
+- Polpo Mail wird wegen der Domainpflicht und der auf Unternehmen/Organisationen ausgerichteten Nutzungsbedingungen zunächst nicht eingerichtet.
+- Zuerst kostenlose Mailboxen ohne eigene Domain und eine mögliche sichere Anbindung an AZE Mail prüfen.
 
 ## Als Nächstes
 1. Nutzer testet die neue Mail-Oberfläche auf iPhone/Safari.
-2. Domain und E-Mail-Anbieter vergleichen: Aliase, echte Postfächer, IMAP/SMTP oder API, Empfang und Versand.
+2. Kostenlose E-Mail-Angebote ohne eigene Domain prüfen und nach Empfang, Versand, mehreren Adressen, API/IMAP und Datenschutz vergleichen.
 3. Backend und Datenmodell für Konten, Adressen, Nachrichten und Zuordnung planen.
 4. Echte Mail-Anbindung und sichere Anmeldung umsetzen.
 5. Deutschen Proxy-/Browserweg technisch aufsetzen und testen.
@@ -55,5 +56,5 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **23.11.2026:** Mail-Adressverwaltung als lokale Vormerkfunktion, Shop-Favoriten, Browser-URL-Öffnung und Verbindungswahl im Frontend ergänzt.
 - **23.11.2026:** Keine echte Mailserver- oder Proxy-Funktion behauptet; Backend-Aufgaben dokumentiert.
 - **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
-- **24.11.2026:** Polpo Mail als Anbieter für die nächste Test- und Integrationsphase ausgewählt; Gratis-Tarifgrenzen und Sicherheits-/Backupvorbehalte dokumentiert.
-- **24.11.2026:** `aze-mail.de` als bevorzugte Projekt-Domain festgelegt; Registrierung erst nach Verfügbarkeits-/Preisprüfung und Klärung der Polpo-Nutzungsbedingungen.
+- **24.11.2026:** Polpo Mail als mögliche spätere Option dokumentiert; Gratis-Tarifgrenzen, Domainpflicht und Nutzungsbedingungen geprüft.
+- **24.11.2026:** Kostenentscheidung präzisiert: AZE Mail startet mit Zielbudget 0 €; vorerst keine Domainregistrierung und kein kostenpflichtiger Tarif. Kostenlose Mailboxen ohne eigene Domain werden zuerst geprüft.
