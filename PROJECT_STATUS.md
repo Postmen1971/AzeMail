@@ -41,11 +41,11 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Verbindliches Arbeitsziel: zunächst 0 € Kosten; keine Domain und keinen Tarif kaufen.
 - `aze-mail.de` bleibt eine Wunschdomain, wird aber vorerst nicht registriert.
 - Polpo Mail wird wegen der Domainpflicht und der auf Unternehmen/Organisationen ausgerichteten Nutzungsbedingungen zunächst nicht eingerichtet.
-- Zuerst kostenlose Mailboxen ohne eigene Domain und eine mögliche sichere Anbindung an AZE Mail prüfen.
+- Eine Anbieter-Domain ist ausdrücklich akzeptiert; zuerst kostenlose Konten mit Anbieter-Endung und deren API/IMAP/SMTP-Möglichkeiten prüfen.
 
 ## Als Nächstes
 1. Nutzer testet die neue Mail-Oberfläche auf iPhone/Safari.
-2. Kostenlose E-Mail-Angebote ohne eigene Domain prüfen und nach Empfang, Versand, mehreren Adressen, API/IMAP und Datenschutz vergleichen.
+2. Kostenlose Anbieter-Domains (z. B. @ik.me, @proton.me, @tuta.com) und technische Integrationsmöglichkeiten vergleichen.
 3. Backend und Datenmodell für Konten, Adressen, Nachrichten und Zuordnung planen.
 4. Echte Mail-Anbindung und sichere Anmeldung umsetzen.
 5. Deutschen Proxy-/Browserweg technisch aufsetzen und testen.
@@ -57,4 +57,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **23.11.2026:** Keine echte Mailserver- oder Proxy-Funktion behauptet; Backend-Aufgaben dokumentiert.
 - **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
 - **24.11.2026:** Polpo Mail als mögliche spätere Option dokumentiert; Gratis-Tarifgrenzen, Domainpflicht und Nutzungsbedingungen geprüft.
-- **24.11.2026:** Kostenentscheidung präzisiert: AZE Mail startet mit Zielbudget 0 €; vorerst keine Domainregistrierung und kein kostenpflichtiger Tarif. Kostenlose Mailboxen ohne eigene Domain werden zuerst geprüft.
+- **24.11.2026:** Kostenentscheidung präzisiert: AZE Mail startet mit Zielbudget 0 €; eine Anbieter-Domain ist ausdrücklich akzeptiert. Kostenlose Anbieter-Konten und ihre Integrationsmöglichkeiten werden zuerst geprüft.
