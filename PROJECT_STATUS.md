@@ -25,12 +25,15 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Shop- und Browserlinks werden zu externen Webseiten geöffnet. Deren eigene Datenverarbeitung liegt außerhalb der Kontrolle der Frontend-Seite.
 - localStorage ist keine Cookie-Datei, speichert aber Daten dauerhaft im Browserprofil des Geräts. Löschen der Website-Daten kann sie entfernen.
 
-## Ausgewählter E-Mail-Anbieter
-- Polpo Mail ist nur noch eine mögliche spätere Option, nicht endgültig ausgewählt. Der Dienst verlangt eine eigene Domain und richtet sich laut Nutzungsbedingungen an Unternehmen/Organisationen.
-- Laut aktuellem Gratis-Tarif: bis zu 10 Postfächer mit je 1 GB, 5 Aliasse und Catch-all pro Domain; API, IMAP und SMTP.
-- Eigene Domain ist Voraussetzung; daher passt Polpo nicht zum aktuellen 0-Euro-Start ohne Domainkauf. Keine Registrierung, bevor die Zulässigkeit der privaten Nutzung geklärt ist.
-- Vor produktiver Nutzung: Registrierung und Domain-Verifizierung, API-Test, Empfangs-/Versandtest, Export-/Backupkonzept und Datenschutzprüfung.
-- Keine API-Tokens oder Zugangsdaten im Frontend oder öffentlichen Repository speichern.
+## E-Mail-Anbieter – noch nicht ausgewählt
+
+- Polpo Mail ist vorerst zurückgestellt: eigene Domain erforderlich, private Nutzung und Kostenmodell müssen vor einer Einrichtung geprüft werden.
+- Ziel bleibt zunächst 0 €; keine Domain kaufen und keinen Tarif buchen.
+- GMX FreeMail ist ein möglicher technischer Testkandidat, da IMAP/SMTP offiziell dokumentiert sind. IMAP muss im Konto aktiviert werden.
+- Tuta Free ist für eine direkte Drittanbieter-Integration ungeeignet, da Tuta IMAP/POP3/SMTP ausdrücklich nicht unterstützt.
+- Proton Mail Bridge ist laut Anbieter kostenpflichtigen Tarifen vorbehalten und nicht für Mobilgeräte verfügbar.
+- Vor der Auswahl prüfen wir zusätzlich API/OAuth, Nutzungsbedingungen, sichere Backend-Anbindung und Exportmöglichkeiten.
+- Zugangsdaten und API-Tokens niemals in `index.html`, Browser-JavaScript oder ein öffentliches GitHub-Repository schreiben.
 
 ## Festgelegte Mail-Bedienung
 - Ein gemeinsamer Posteingang für alle E-Mail-Adressen.
@@ -38,18 +41,20 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Nachrichten werden intern mit ihrer Empfängeradresse verknüpft; beim Antworten soll diese Adresse als Absender vorausgewählt werden.
 
 ## Kostenentscheidung
-- Verbindliches Arbeitsziel: zunächst 0 € Kosten; keine Domain und keinen Tarif kaufen.
+
+- Verbindliches Arbeitsziel: zunächst 0 €; keine Domain und keinen Tarif kaufen.
 - `aze-mail.de` bleibt eine Wunschdomain, wird aber vorerst nicht registriert.
-- Polpo Mail wird wegen der Domainpflicht und der auf Unternehmen/Organisationen ausgerichteten Nutzungsbedingungen zunächst nicht eingerichtet.
-- Eine Anbieter-Domain ist ausdrücklich akzeptiert; zuerst kostenlose Konten mit Anbieter-Endung und deren API/IMAP/SMTP-Möglichkeiten prüfen.
+- Polpo Mail wird vorerst nicht eingerichtet.
+- Eine Anbieter-Domain ist ausdrücklich akzeptiert; zuerst kostenlose Konten und deren offizielle API-/IMAP-/SMTP-Möglichkeiten prüfen.
 
 ## Als Nächstes
-1. Nutzer testet die neue Mail-Oberfläche auf iPhone/Safari.
-2. Kostenlose Anbieter-Domains (z. B. @ik.me, @proton.me, @tuta.com) und technische Integrationsmöglichkeiten vergleichen.
-3. Backend und Datenmodell für Konten, Adressen, Nachrichten und Zuordnung planen.
-4. Echte Mail-Anbindung und sichere Anmeldung umsetzen.
-5. Deutschen Proxy-/Browserweg technisch aufsetzen und testen.
-6. Vor produktiver Nutzung Sicherheits- und Datenschutzprüfung.
+
+1. Kostenlose Anbieter technisch und nach Nutzungsbedingungen vergleichen; GMX ist erster IMAP/SMTP-Testkandidat.
+2. Einen sicheren Backend-Prototyp planen, der Zugangsdaten niemals an den Browser ausliefert.
+3. Datenmodell für Konten, Empfängeradressen, Nachrichten und Zuordnung festlegen.
+4. Erst nach erfolgreichem Test echte Empfangs- und Versandfunktionen umsetzen.
+5. Danach Login/PIN, Datenschutz- und Sicherheitstest planen.
+6. Den deutschen Proxy-/Browserweg separat technisch spezifizieren; der aktuelle Umschalter ist nur eine UI-Auswahl.
 
 ## Änderungsprotokoll
 - **23.11.2026:** Erstes Frontend mit Startseite und Konzeptbereichen angelegt.
