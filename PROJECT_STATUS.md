@@ -8,6 +8,7 @@
 Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeichert. Die GitHub-Pages-Veröffentlichung muss im Repository aktiviert sein, damit die Seite öffentlich über Safari erreichbar ist.
 
 ## Im Frontend-Prototyp vorhanden
+- Mail-Bereich mit vorbereitetem gemeinsamen Posteingang und Auswahlfilter „Alle Adressen“ bzw. einzelne Empfängeradresse (derzeit nur Oberfläche, noch keine echten Nachrichten).
 - Startseite und Navigation: Start, Mail, Browser, Shopping, Verwaltung.
 - Wunschadressen lokal vormerken, pausieren, reaktivieren und löschen.
 - Shop-Favoriten hinzufügen und über externe Browseransicht öffnen.
@@ -24,11 +25,16 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Shop- und Browserlinks werden zu externen Webseiten geöffnet. Deren eigene Datenverarbeitung liegt außerhalb der Kontrolle der Frontend-Seite.
 - localStorage ist keine Cookie-Datei, speichert aber Daten dauerhaft im Browserprofil des Geräts. Löschen der Website-Daten kann sie entfernen.
 
+## Festgelegte Mail-Bedienung
+- Ein gemeinsamer Posteingang für alle E-Mail-Adressen.
+- Zusätzlich Filter, um Nachrichten einer einzelnen Empfängeradresse anzuzeigen.
+- Nachrichten werden intern mit ihrer Empfängeradresse verknüpft; beim Antworten soll diese Adresse als Absender vorausgewählt werden.
+
 ## Als Nächstes
-1. Nutzer testet die neue Oberfläche auf iPhone/Safari und meldet Fehler oder Änderungswünsche.
-2. Domain und E-Mail-Anbieter vergleichen.
-3. Backend und echte Mail-Anbindung planen.
-4. Sichere Anmeldung und PIN mit Backend umsetzen.
+1. Nutzer testet die neue Mail-Oberfläche auf iPhone/Safari.
+2. Domain und E-Mail-Anbieter vergleichen: Aliase, echte Postfächer, IMAP/SMTP oder API, Empfang und Versand.
+3. Backend und Datenmodell für Konten, Adressen, Nachrichten und Zuordnung planen.
+4. Echte Mail-Anbindung und sichere Anmeldung umsetzen.
 5. Deutschen Proxy-/Browserweg technisch aufsetzen und testen.
 6. Vor produktiver Nutzung Sicherheits- und Datenschutzprüfung.
 
@@ -36,3 +42,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **23.11.2026:** Erstes Frontend mit Startseite und Konzeptbereichen angelegt.
 - **23.11.2026:** Mail-Adressverwaltung als lokale Vormerkfunktion, Shop-Favoriten, Browser-URL-Öffnung und Verbindungswahl im Frontend ergänzt.
 - **23.11.2026:** Keine echte Mailserver- oder Proxy-Funktion behauptet; Backend-Aufgaben dokumentiert.
+- **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
