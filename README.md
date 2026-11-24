@@ -1,6 +1,6 @@
 # AZE Mail
 
-> **Status:** Konzeptentwurf mit ersten festgelegten Entscheidungen – noch keine produktive Implementierung.
+> **Status:** HTML-Funktionsprototyp vorhanden; echte Mail- und Proxy-Anbindung noch nicht implementiert.
 
 ## Ursprungsgedanke
 
