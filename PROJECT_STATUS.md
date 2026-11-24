@@ -25,6 +25,13 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - Shop- und Browserlinks werden zu externen Webseiten geöffnet. Deren eigene Datenverarbeitung liegt außerhalb der Kontrolle der Frontend-Seite.
 - localStorage ist keine Cookie-Datei, speichert aber Daten dauerhaft im Browserprofil des Geräts. Löschen der Website-Daten kann sie entfernen.
 
+## Ausgewählter E-Mail-Anbieter
+- Polpo Mail wurde als Anbieter für die nächste Test- und Integrationsphase ausgewählt.
+- Laut aktuellem Gratis-Tarif: bis zu 10 Postfächer mit je 1 GB, 5 Aliasse und Catch-all pro Domain; API, IMAP und SMTP.
+- Eigene Domain ist Voraussetzung. Die Alias-Grenze und Catch-all-Absenderfähigkeit müssen für unser gewünschtes Adressmodell geprüft werden.
+- Vor produktiver Nutzung: Registrierung und Domain-Verifizierung, API-Test, Empfangs-/Versandtest, Export-/Backupkonzept und Datenschutzprüfung.
+- Keine API-Tokens oder Zugangsdaten im Frontend oder öffentlichen Repository speichern.
+
 ## Festgelegte Mail-Bedienung
 - Ein gemeinsamer Posteingang für alle E-Mail-Adressen.
 - Zusätzlich Filter, um Nachrichten einer einzelnen Empfängeradresse anzuzeigen.
@@ -43,3 +50,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **23.11.2026:** Mail-Adressverwaltung als lokale Vormerkfunktion, Shop-Favoriten, Browser-URL-Öffnung und Verbindungswahl im Frontend ergänzt.
 - **23.11.2026:** Keine echte Mailserver- oder Proxy-Funktion behauptet; Backend-Aufgaben dokumentiert.
 - **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
+- **24.11.2026:** Polpo Mail als Anbieter für die nächste Test- und Integrationsphase ausgewählt; Gratis-Tarifgrenzen und Sicherheits-/Backupvorbehalte dokumentiert.
