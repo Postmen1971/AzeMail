@@ -25,6 +25,9 @@ textarea.input{min-height:220px;resize:vertical;line-height:1.45}.field{margin-t
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1d3b2f;border:1px solid #2f6b52;color:#d7ffe9;padding:11px 16px;border-radius:13px;font-size:14px;z-index:9;display:none;max-width:90vw}
 .spin{display:inline-block;width:15px;height:15px;border:2px solid #ffffff44;border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px}@keyframes sp{to{transform:rotate(360deg)}}
 .switch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}.switch input{width:22px;height:22px}
+.searchbar{display:flex;align-items:center;gap:6px;background:#0c1420;border:1px solid #34465f;border-radius:16px;padding:5px 6px 5px 12px}.searchbar:focus-within{border-color:var(--blue)}.searchbar input{flex:1;min-width:0;background:none;border:0;outline:none;color:#fff;font:inherit;font-size:16px;padding:9px 2px;-webkit-appearance:none;appearance:none}.searchbar input::-webkit-search-cancel-button{display:none}.gmark{font-weight:800;font-size:18px;background:conic-gradient(from -45deg,#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0);-webkit-background-clip:text;background-clip:text;color:transparent}.sclear{background:none;border:0;color:var(--muted);font-size:22px;padding:0 6px;cursor:pointer;display:none}.sgo{border:0;border-radius:12px;background:linear-gradient(100deg,#347fda,#795fe0);color:#fff;font-size:17px;width:46px;height:40px;cursor:pointer}
+.quick{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}.quick button{border:1px solid var(--line);background:#182438;color:#dce8f6;border-radius:20px;padding:7px 12px;font-size:13px;cursor:pointer}
+.frametools{display:flex;gap:8px;margin-top:12px}.frametools .btn{flex:1}.framewrap iframe{height:70vh}
 </style></head>
 <body><main class="wrap">
 <header class="top"><div class="brand"><div class="logo">AZE</div><span>AZE Mail</span></div><div class="avatar" id="avatar" onclick="if(window.LIVE&&LIVE.loggedIn)go('settings')">A</div></header>
@@ -110,9 +113,20 @@ textarea.input{min-height:220px;resize:vertical;line-height:1.45}.field{margin-t
 </section>
 
 <section id="browser" class="page">
-<div class="eyebrow">Webzugang</div><h1>Browser</h1><p class="muted">Webadresse eingeben und öffnen.</p>
-<div class="card"><div class="browserbar"><input id="url" class="input" placeholder="https://www.beispiel.de" inputmode="url"><button class="btn primary" onclick="openSite()">Öffnen</button></div><p class="hint">Viele Shops und Plattformen blockieren die Anzeige in eingebetteten Fenstern. Dann „Extern öffnen“ verwenden.</p><div id="browserResult" class="empty">Noch keine Webseite geöffnet.</div><button id="externalBtn" class="btn ghost" style="display:none;width:100%;margin-top:10px" onclick="openExternal()">Extern öffnen</button></div>
-<div class="card"><div class="row"><h2>Verbindungsweg</h2><span class="tag" id="wayTag">Noch nicht verbunden</span></div><p class="muted" style="font-size:14px">Aktuelle Auswahl: <b id="currentWay">Direktverbindung</b></p><div class="formrow"><button id="serverChoice" class="choice" onclick="setWay('Deutscher Server')">Deutscher Server</button><button id="directChoice" class="choice active" onclick="setWay('Direktverbindung')">Direktverbindung</button></div><p class="hint demo-only">Der Umschalter speichert aktuell nur deine Auswahl. Für den deutschen Ausgang brauchen wir später einen echten Proxy-Server. Die Auswahl ändert deine IP-Adresse noch nicht.</p><p class="hint live-only"><b>Deutscher Server:</b> „Öffnen“ lädt die Seite über deinen AZE-Server – die Webseite sieht dessen IP-Adresse. Das ist eine vereinfachte Ansicht ohne Skripte und ohne Logins. <b>Direktverbindung:</b> normale Verbindung deines Geräts. „Extern öffnen“ nutzt immer die Direktverbindung.</p><button class="btn ghost live-only" style="width:100%;margin-top:10px" onclick="testConnection()">Verbindung testen</button><div id="connResult" class="hint live-only" style="margin-top:8px"></div></div>
+<div class="eyebrow">Webzugang</div><h1>Browser</h1><p class="muted">Mit Google suchen oder eine Webadresse öffnen.</p>
+<div class="card">
+<form class="searchbar" onsubmit="event.preventDefault();openSite()" role="search">
+<span class="gmark" aria-hidden="true">G</span>
+<input id="url" type="search" placeholder="Mit Google suchen oder Adresse eingeben" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Google-Suche oder Webadresse">
+<button type="button" id="clearUrl" class="sclear" aria-label="Eingabe löschen" onclick="clearSearch()">×</button>
+<button type="submit" class="sgo" aria-label="Suchen">🔍</button>
+</form>
+<div class="quick" id="quickLinks"></div>
+<div id="browserResult" class="empty">Suchbegriff eintippen (z. B. „Wetter Waiblingen“) oder eine Adresse wie markt.de.</div>
+<div id="frameTools" class="frametools" style="display:none"><button id="externalBtn" class="btn ghost" onclick="openExternal()">In Safari öffnen</button><button class="btn ghost" onclick="closeSite()">Schließen</button></div>
+<p class="hint" id="frameHint" style="display:none">Bleibt die Seite leer, erlaubt sie keine Anzeige in anderen Apps – dann „In Safari öffnen“ tippen. Tipp: In den Google-Treffern einen Link lange drücken → „In neuem Tab öffnen“.</p>
+</div>
+<div class="card"><div class="row"><h2>Verbindungsweg</h2><span class="tag" id="wayTag">Noch nicht verbunden</span></div><p class="muted" style="font-size:14px">Aktuelle Auswahl: <b id="currentWay">Direktverbindung</b></p><div class="formrow"><button id="serverChoice" class="choice" onclick="setWay('Deutscher Server')">Deutscher Server</button><button id="directChoice" class="choice active" onclick="setWay('Direktverbindung')">Direktverbindung</button></div><p class="hint demo-only">Der Umschalter speichert aktuell nur deine Auswahl. Für den deutschen Ausgang brauchen wir später einen echten Proxy-Server. Die Auswahl ändert deine IP-Adresse noch nicht.</p><p class="hint live-only"><b>Deutscher Server:</b> Webadressen werden über deinen AZE-Server geladen – die Webseite sieht dessen IP-Adresse. Das ist eine vereinfachte Ansicht ohne Skripte und ohne Logins (auch markt.de lässt sich so innerhalb der App ansehen). <b>Direktverbindung:</b> normale Verbindung deines Geräts. „In Safari öffnen“ und die Google-Suche nutzen immer die Direktverbindung.</p><button class="btn ghost live-only" style="width:100%;margin-top:10px" onclick="testConnection()">Verbindung testen</button><div id="connResult" class="hint live-only" style="margin-top:8px"></div></div>
 </section>
 
 <section id="shopping" class="page">
@@ -154,7 +168,7 @@ const KEY='aze_mail_proto_v1';
 let data={addresses:[],shops:[{name:'Amazon',url:'https://www.amazon.de'},{name:'eBay',url:'https://www.ebay.de'},{name:'markt.de',url:'https://www.markt.de'}],way:'Direktverbindung'};
 try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)data={...data,...saved}}catch(e){}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){alert('Speichern auf diesem Gerät war nicht möglich.')}}
-function go(id){if(LIVE.on&&!LIVE.loggedIn&&id!=='auth')id='auth';const navId={reader:'mail',compose:'mail'}[id]||id;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===navId));document.body.classList.toggle('locked',id==='auth');window.scrollTo(0,0);if(id==='mail'){renderAddresses();renderMailFilter();if(LIVE.on)loadInbox()}if(id==='shopping')renderShops();if(id==='settings'&&LIVE.on)renderLiveSettings()}
+function go(id){if(LIVE.on&&!LIVE.loggedIn&&id!=='auth')id='auth';const navId={reader:'mail',compose:'mail'}[id]||id;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===navId));document.body.classList.toggle('locked',id==='auth');window.scrollTo(0,0);if(id==='mail'){renderAddresses();renderMailFilter();if(LIVE.on)loadInbox()}if(id==='shopping')renderShops();if(id==='browser')renderQuick();if(id==='settings'&&LIVE.on)renderLiveSettings()}
 function modal(t,m){document.getElementById('modalTitle').textContent=t;document.getElementById('modalText').textContent=m;document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
 function addAddress(){if(LIVE.on)return liveAddAddress();let n=document.getElementById('localName').value.trim().toLowerCase();if(!/^[a-z0-9._-]{2,40}$/.test(n)){modal('Name prüfen','Bitte 2 bis 40 Zeichen verwenden: Buchstaben, Zahlen, Punkt, Bindestrich oder Unterstrich.');return}let email=n+'@aze-mail.de';if(data.addresses.some(a=>a.email===email)){modal('Schon vorhanden','Diese Adresse ist bereits vorgemerkt.');return}data.addresses.push({email,active:true});persist();document.getElementById('localName').value='';renderAddresses()}
@@ -179,9 +193,60 @@ function renderInboxPlaceholder(){
  else box.textContent='Filter aktiv: '+selectedMailAddress+'. Noch kein echter Posteingang verbunden.';
 }
 function validUrl(raw){try{let u=new URL(raw.includes('://')?raw:'https://'+raw);if(!['http:','https:'].includes(u.protocol))return null;return u.href}catch(e){return null}}
+// Seiten, die sich grundsätzlich nicht in anderen Apps anzeigen lassen (X-Frame-Options/CSP)
+const NO_EMBED=['markt.de','kleinanzeigen.de','amazon.de','amazon.com','ebay.de','ebay.com','paypal.com','paypal.de','google.com','google.de','youtube.com','facebook.com','instagram.com','x.com','twitter.com','tiktok.com','whatsapp.com','gmx.net','gmx.de','web.de','t-online.de','apple.com','icloud.com','microsoft.com','live.com','outlook.com','github.com','wikipedia.org','zalando.de','otto.de','idealo.de','check24.de','mobile.de','immobilienscout24.de','chefkoch.de','bild.de','spiegel.de','tagesschau.de','dhl.de','sparkasse.de','temu.com','aliexpress.com','shein.com','lidl.de','aldi-sued.de','kaufland.de','mediamarkt.de','saturn.de'];
+function blocksEmbed(host){host=host.toLowerCase().replace(/^www\./,'');return NO_EMBED.some(d=>host===d||host.endsWith('.'+d))}
+function looksLikeUrl(v){return /^[a-z][a-z0-9+.-]*:\/\//i.test(v)||(!/\s/.test(v)&&/^[^\s/]+\.[a-z]{2,}(:\d+)?([/?#].*)?$/i.test(v))}
+const isIOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const EXT_LABEL=isIOS?'In Safari öffnen':'Im Browser öffnen';
 let lastUrl='';
-function openSite(){let v=validUrl(document.getElementById('url').value.trim());if(!v){modal('Webadresse prüfen','Bitte eine gültige Adresse mit Domain eingeben.');return}lastUrl=v;const viaServer=LIVE.on&&LIVE.loggedIn&&data.way==='Deutscher Server';document.getElementById('browserResult').className='empty';document.getElementById('browserResult').textContent=(viaServer?'Lade über deinen AZE-Server (deutscher Server): ':'Versuche, die Seite innerhalb der Anwendung zu laden: ')+v;document.getElementById('externalBtn').style.display='block';let old=document.getElementById('siteFrame');if(old)old.remove();let wrap=document.createElement('div');wrap.className='framewrap';let frame=document.createElement('iframe');frame.id='siteFrame';frame.src=viaServer?'/proxy?url='+encodeURIComponent(v):v;frame.title='Externe Webseite';frame.referrerPolicy='no-referrer';frame.sandbox='allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox';wrap.append(frame);document.getElementById('browserResult').after(wrap)}
+function clearSearch(){const i=document.getElementById('url');i.value='';i.focus();updateClear()}
+function updateClear(){document.getElementById('clearUrl').style.display=document.getElementById('url').value?'block':'none'}
+function closeSite(){const f=document.getElementById('siteFrame');if(f)f.parentNode.remove();document.getElementById('frameTools').style.display='none';document.getElementById('frameHint').style.display='none';const r=document.getElementById('browserResult');r.style.display='block';r.className='empty';r.textContent='Suchbegriff eintippen oder eine Adresse wie markt.de.'}
+function showFrame(src,label){
+ const r=document.getElementById('browserResult');r.style.display='none';
+ let old=document.getElementById('siteFrame');if(old)old.parentNode.remove();
+ const wrap=document.createElement('div');wrap.className='framewrap';
+ const frame=document.createElement('iframe');frame.id='siteFrame';frame.src=src;frame.title=label||'Webseite';frame.referrerPolicy='no-referrer';
+ frame.sandbox='allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox';
+ wrap.append(frame);document.getElementById('frameTools').after(wrap);
+ document.getElementById('externalBtn').textContent=EXT_LABEL;
+ document.getElementById('frameTools').style.display='flex';document.getElementById('frameHint').style.display='block'}
+function openSite(raw){
+ const input=document.getElementById('url');
+ let v=(raw!=null?raw:input.value).trim();
+ if(!v){input.focus();return}
+ if(raw!=null){input.value=v;updateClear()}
+ try{input.blur()}catch(e){}
+ const viaServer=LIVE.on&&LIVE.loggedIn&&data.way==='Deutscher Server';
+ if(!looksLikeUrl(v)){
+  // Google-Suche: mit igu=1 lässt Google die Ergebnisse im Fenster anzeigen
+  lastUrl='https://www.google.de/search?q='+encodeURIComponent(v);
+  showFrame('https://www.google.com/search?igu=1&hl=de&gl=de&q='+encodeURIComponent(v),'Google-Suche');
+  if(viaServer)document.getElementById('frameHint').textContent='Hinweis: Die Google-Suche läuft immer direkt (Google funktioniert nicht über die vereinfachte Server-Ansicht). Bleibt ein Treffer leer, „'+EXT_LABEL+'“ tippen oder den Link lange drücken → „In neuem Tab öffnen“.';
+  return}
+ const url=validUrl(v);
+ if(!url){modal('Webadresse prüfen','Bitte eine gültige Adresse eingeben, z. B. markt.de.');return}
+ lastUrl=url;
+ const host=new URL(url).hostname;
+ if(viaServer){showFrame('/proxy?url='+encodeURIComponent(url),host);return}
+ if(blocksEmbed(host)){
+  // Diese Seite verbietet die Anzeige in anderen Apps → direkt im Browser öffnen
+  window.open(url,'_blank','noopener,noreferrer');
+  const old=document.getElementById('siteFrame');if(old)old.parentNode.remove();
+  document.getElementById('frameHint').style.display='none';
+  const r=document.getElementById('browserResult');r.style.display='block';r.className='empty';
+  r.innerHTML='';const t=document.createElement('div');t.textContent=host+' erlaubt keine Anzeige innerhalb anderer Apps. Die Seite wurde deshalb direkt '+(isIOS?'in Safari':'im Browser')+' geöffnet.';
+  const b=document.createElement('button');b.className='btn primary';b.style.marginTop='12px';b.textContent=host+' erneut öffnen';b.onclick=openExternal;
+  r.append(t,b);document.getElementById('frameTools').style.display='none';return}
+ document.getElementById('frameHint').textContent='Bleibt die Seite leer, erlaubt sie keine Anzeige in anderen Apps – dann „'+EXT_LABEL+'“ tippen.';
+ showFrame(url,host)}
 function openExternal(){if(lastUrl)window.open(lastUrl,'_blank','noopener,noreferrer')}
+function renderQuick(){
+ const el=document.getElementById('quickLinks');if(!el)return;el.innerHTML='';
+ const list=[{name:'Google',url:'https://www.google.de'}].concat((data.shops||[]).slice(0,5));
+ list.forEach(s=>{const b=document.createElement('button');b.type='button';b.textContent=s.name;b.onclick=()=>{if(s.name==='Google'){document.getElementById('url').focus();return}openSite(s.url)};el.append(b)})}
+document.addEventListener('DOMContentLoaded',()=>{const i=document.getElementById('url');if(i)i.addEventListener('input',updateClear)});
 function setWay(w){data.way=w;persist();renderWay()}
 function renderWay(){['homeWay','currentWay'].forEach(id=>document.getElementById(id).textContent=data.way);const wt=document.getElementById('wayTag');if(wt)wt.textContent=LIVE.on?'Aktiv':'Noch nicht verbunden';document.getElementById('serverChoice').classList.toggle('active',data.way==='Deutscher Server');document.getElementById('directChoice').classList.toggle('active',data.way==='Direktverbindung')}
 function addShop(){let n=document.getElementById('shopName').value.trim(),u=validUrl(document.getElementById('shopUrl').value.trim());if(!n||!u){modal('Angaben fehlen','Bitte Shopname und gültige Webadresse eintragen.');return}data.shops.push({name:n,url:u});persist();document.getElementById('shopName').value='';document.getElementById('shopUrl').value='';renderShops()}
@@ -517,5 +582,5 @@ async function testConnection(){
 
 document.addEventListener('visibilitychange',()=>{if(!document.hidden&&LIVE.on&&LIVE.loggedIn&&$('mail').classList.contains('active'))loadInbox()});
 setInterval(()=>{if(!document.hidden&&LIVE.on&&LIVE.loggedIn&&$('mail').classList.contains('active')&&!$('mailSearch').value)loadInbox()},120000);
-renderAddresses();renderShops();renderWay();initLive();
+renderAddresses();renderShops();renderWay();renderQuick();initLive();
 </script></body></html>

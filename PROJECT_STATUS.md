@@ -16,6 +16,7 @@ Version 1.0 ist fertig: Oberfläche (`index.html`) und AZE-Server (`server/`, No
 - Antworten / Allen antworten mit der passenden Empfängeradresse als Absender; neue Mail mit Anhängen (max. 15 MB); Kopie in „Gesendet“.
 - Löschen in den Papierkorb, Wiederherstellen, endgültiges Löschen nach Bestätigung; Als ungelesen markieren.
 - Adressen hinzufügen, pausieren/aktivieren, nach Bestätigung entfernen.
+- Browser: Google-Suchleiste oben (Treffer direkt in der App), Schnellwahl für Google und die Lieblingsshops; Seiten, die keine Einbettung erlauben (z. B. markt.de, Amazon, eBay), öffnen sich automatisch in Safari.
 - Browser-Weg „Deutscher Server“ (Abruf über den AZE-Server, vereinfachte Ansicht ohne Skripte) und „Verbindung testen“ für beide Wege.
 - Shopping, Einmal-SMS-Linkliste und Datenschutz-Bereich unverändert übernommen.
 
@@ -53,3 +54,4 @@ Version 1.0 ist fertig: Oberfläche (`index.html`) und AZE-Server (`server/`, No
 - **24.11.2026:** README und Projektstatus vereinheitlicht: Polpo Mail zurückgestellt, 0-Euro-Start bestätigt, Anbieterentscheidung offen; erste technische Anbieterprüfung dokumentiert.
 - **24.11.2026:** Widersprüchliche Anbieterangaben bereinigt: Polpo Mail ist zurückgestellt, `aze-mail.de` nur Wunschdomain; GMX/IMAP-SMTP als erster technischer Testkandidat, Tuta und Proton Free wegen fehlender passender Drittanbieter-Anbindung vorerst nicht geeignet.
 - **24.11.2026:** Version 1.0: AZE-Server ohne Zusatzpakete (IMAP/SMTP-Client, MIME, Login/PIN mit verschlüsselter Schlüsselablage, Proxy „Deutscher Server“), Oberfläche um echten Mailbetrieb erweitert (Demo-Modus bleibt), Tests, `INSTALLATION.md`, systemd-Dienst.
+- **24.11.2026:** Browser: Google-Suchleiste oben, Schnellwahl-Knöpfe; markt.de & Co. (verbieten Einbettung) öffnen automatisch in Safari statt leer zu bleiben; Knopf heißt auf dem iPhone „In Safari öffnen“.
