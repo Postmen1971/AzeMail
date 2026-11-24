@@ -75,34 +75,20 @@ Geplant ist:
 
 ## 3. Domain und E-Mail-Dienst
 
-`aze-mail.de` ist als Domain für AZE Mail festgelegt. Die Registrierung und DNS-Konfiguration stehen noch aus. Unser Kostenprinzip lautet: zunächst 0 € laufende Kosten und keine unnötigen Ausgaben. Vor einer Registrierung prüfen wir Verfügbarkeit, Preis und Verlängerungskosten der Domain sowie die technischen Voraussetzungen.
+Das verbindliche Kostenprinzip lautet zunächst **0 €**. Eine eigene Domain ist derzeit nicht zu kaufen oder einzurichten. `aze-mail.de` bleibt eine Wunschdomain für später, ist aber weder registriert noch technisch verbunden.
 
-Der ausgewählte Maildienst ist Polpo Mail im kostenlosen Tarif. Die konkrete Einrichtung und ein Funktionstest stehen noch aus. Wir prüfen dabei insbesondere Domain-Verknüpfung, Empfang, Versand, API-Anbindung und die sichere Zuordnung jeder Nachricht zur Empfängeradresse.
+**Polpo Mail ist vorerst nicht ausgewählt und wird nicht eingerichtet.** Ausschlaggebend sind die notwendige eigene Domain, die noch zu klärenden Nutzungsbedingungen für private Nutzung und das Ziel, ohne laufende Kosten zu starten. Die früher notierten Angaben zum kostenlosen Polpo-Tarif sind keine verbindliche Projektentscheidung.
 
-Ein eigener Mailserver ist nicht vorgesehen, solange Polpo Mail die Anforderungen erfüllt.
+Zuerst prüfen wir kostenlose Anbieter-Konten mit Anbieter-Endung und deren Möglichkeiten zur technischen Anbindung. Wichtig ist dabei: Eine Webmail-Seite allein reicht für die Integration in AZE Mail nicht aus. Wir brauchen einen unterstützten und sicheren Zugriff auf Empfang und Versand (z. B. IMAP/SMTP oder eine dokumentierte API) sowie eine zulässige Authentifizierung.
 
-## 3.1 Ausgewählter E-Mail-Anbieter: Polpo Mail (kostenloser Einstieg)
+### 3.1 Vorläufige Anbieterprüfung
 
-**Entscheidung:** Wir verwenden Polpo Mail zunächst im kostenlosen Tarif. Als eigene AZE-Mail-Domain ist `aze-mail.de` festgelegt. Die Domain muss noch auf Verfügbarkeit und Kosten geprüft und anschließend registriert sowie mit Polpo Mail verbunden werden. Die Anbieterwahl wird nicht erneut geöffnet, solange bei der Prüfung kein konkretes Ausschlusskriterium auftritt.
+- **GMX FreeMail:** möglicher technischer Testkandidat, weil GMX IMAP und SMTP dokumentiert anbietet. IMAP/POP muss im Konto eingeschaltet werden; Zugangsdaten dürfen nicht im Frontend gespeichert werden. Ob ein automatisierter AZE-Mail-Backendzugriff dauerhaft und nach den aktuellen Bedingungen zulässig ist, prüfen wir vor einer Umsetzung.
+- **Tuta Free:** bietet einen kostenlosen Einstieg, unterstützt aber ausdrücklich kein IMAP/POP3/SMTP und keine Drittanbieter-Mailclients. Daher ist es für die geplante direkte Integration derzeit ungeeignet.
+- **Proton Mail Free:** Proton Bridge ist laut Anbieter nur mit einem kostenpflichtigen Tarif verfügbar und läuft auf Desktop-Systemen, nicht auf Mobilgeräten. Daher ist es für unseren kostenlosen, serverseitigen Integrationsweg kein passender Startkandidat.
+- **Gmail/Outlook:** bleiben mögliche spätere Prüfoptionen. Eine Integration müsste über die offiziellen APIs und OAuth erfolgen; Passwörter oder Tokens gehören niemals in die HTML-Datei.
 
-Laut aktueller offizieller Tarifbeschreibung umfasst der kostenlose Tarif:
-- Bis zu 10 Postfächer pro Domain, standardmäßig je 1 GB.
-- Bis zu 5 Aliasse pro Domain sowie eine Catch-all-Adresse.
-- Webmail, IMAP und SMTP mit TLS.
-- REST API und persönliche Zugriffstokens.
-- Webhooks für neue Nachrichten.
-- Laut Anbieter Verarbeitung und Speicherung der E-Mail-Daten in Deutschland (EU).
-
-Wichtige Einschränkungen:
-- Eine eigene Domain ist Voraussetzung und muss separat registriert werden.
-- Die 5-Alias-Grenze ist für unser Modell mit vielen frei wählbaren Absenderadressen zu berücksichtigen. Catch-all-Empfang bedeutet nicht automatisch, dass beliebige Adressen auch als Absender verwendet werden können.
-- Der kostenlose Dienst hat laut Nutzungsbedingungen keine zugesicherte Verfügbarkeit, keinen SLA und keine zugesicherte Datensicherung oder Wiederherstellung. Wichtige Nachrichten müssen unabhängig exportiert/gesichert werden.
-- API-Zugriffstokens sind Geheimnisse. Sie gehören ausschließlich in ein sicheres Backend, niemals in index.html, Browser-JavaScript oder ein öffentliches GitHub-Repository.
-
-Offizielle Informationen:
-- Preise und Leistungsumfang: https://polpomail.com/pricing
-- API-Dokumentation: https://polpomail.com/developers
-- Nutzungsbedingungen: https://polpomail.com/terms
+**Noch keine Anbieterentscheidung:** Wir wählen erst nach einem praktischen Test und einer Prüfung der aktuellen Nutzungsbedingungen. Der erste technische Machbarkeitstest soll mit einem kostenlosen Konto erfolgen, ohne dass AZE Mail das Passwort oder andere Geheimnisse im Browser speichert.
 
 ## 4. Datenschutz – wichtige Leitlinie
 
