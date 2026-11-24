@@ -1,6 +1,6 @@
 # AZE Mail
 
-> **Status:** Konzeptentwurf – noch keine endgültigen Entscheidungen, noch keine produktive Implementierung.
+> **Status:** Konzeptentwurf mit ersten festgelegten Entscheidungen – noch keine produktive Implementierung.
 
 ## Ursprungsgedanke
 
@@ -75,7 +75,7 @@ Geplant ist:
 
 ## 3. Domain und E-Mail-Dienst
 
-Als Beispiel für die gewünschte Endung wurde `@aze-mail.de` besprochen. Ob die Domain verfügbar ist und was sie kostet, muss geprüft werden.
+Als bevorzugte Projekt-Domain wurde `aze-mail.de` festgelegt. Die Domain ist noch nicht registriert; Verfügbarkeit und Preis müssen vor dem Kauf geprüft werden. Die zugehörigen E-Mail-Adressen würden dann beispielsweise auf `@aze-mail.de` enden.
 
 Zu vergleichen sind:
 - Domainpreis und jährliche Verlängerung.
@@ -171,7 +171,8 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 - Keine Zugangsdaten oder echten persönlichen E-Mail-Inhalte in GitHub speichern.
 
 ## 10. Noch offene Fragen
-- Ist `aze-mail.de` verfügbar und bezahlbar?
+- Ist `aze-mail.de` verfügbar und bezahlbar? (bevorzugte Domain ist festgelegt, Prüfung noch offen)
+- Bestätigt Polpo schriftlich, dass die Nutzung für unser privates AZE-Mail-Projekt zulässig ist? Die aktuellen Nutzungsbedingungen beschreiben den Dienst als für Unternehmen und Organisationen bestimmt.
 - Welcher E-Mail-Anbieter erfüllt die Anforderungen?
 - Wie viele echte Postfächer bzw. Aliase werden benötigt und welcher Anbieter unterstützt das gewählte gemeinsame Posteingangsmodell?
 - Welcher Hosting-Anbieter wird verwendet?
