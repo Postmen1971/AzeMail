@@ -148,9 +148,9 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 - `PROJECT_STATUS.md` nach größeren Änderungen aktualisieren.
 - Keine Zugangsdaten oder echten persönlichen E-Mail-Inhalte in GitHub speichern.
 
-## 3.2 Festgelegte Domain
+## 3.2 Wunschdomain
 
-Die gewünschte Domain für AZE Mail lautet **`aze-mail.de`**. Sie ist beschlossen, aber noch nicht als registriert oder technisch eingerichtet zu behandeln. Vor dem Kauf prüfen wir die tatsächliche Verfügbarkeit und die Kosten. Danach folgen Registrierung, DNS-Einträge und die Verbindung mit Polpo Mail.
+Die gewünschte Domain für AZE Mail lautet **`aze-mail.de`**. Sie ist nur als spätere Option vorgemerkt. Sie ist nicht als registriert oder technisch eingerichtet zu behandeln. Ein Kauf erfolgt nur nach vorheriger Prüfung von Verfügbarkeit, Preis und Verlängerungskosten sowie ausdrücklicher Zustimmung.
 
 ## 10. Noch offene Fragen
 - Ist `aze-mail.de` zum gewünschten Preis verfügbar und welche Verlängerungskosten entstehen?
@@ -173,16 +173,14 @@ Die gewünschte Domain für AZE Mail lautet **`aze-mail.de`**. Sie ist beschloss
 
 ## 11. Verbindliche Projektentscheidungen und Arbeitsregel
 
-- **E-Mail-Anbieter:** Polpo Mail, kostenloser Tarif als festgelegte Ausgangsbasis.
-- **Tarifumfang laut bisheriger Prüfung:** bis zu 10 Postfächer mit jeweils 1 GB, bis zu 5 Aliase, Catch-all, API, IMAP und SMTP. Vor der Einrichtung werden Umfang und Bedingungen nochmals anhand der offiziellen Anbieterinformationen geprüft; diese Angaben sind keine Garantie für unveränderte künftige Tarife.
-- **Domain:** `aze-mail.de` ist als AZE-Mail-Domain festgelegt. Verfügbarkeit, Registrierung und technische Einrichtung sind noch offen.
-- **Kosten:** Ziel ist zunächst ein Betrieb ohne laufende Kosten. Kosten für die Domain dürfen erst nach Prüfung der Verfügbarkeit und des Preises entstehen.
-- **Posteingang:** gemeinsamer Posteingang für alle Adressen plus Filter pro Adresse. Jede Nachricht muss ihrer tatsächlichen Empfängeradresse zugeordnet bleiben.
+- **Kosten:** AZE Mail startet mit dem Zielbudget 0 €. Keine Domain und keinen Tarif kaufen oder buchen, solange der Nutzer nicht ausdrücklich zustimmt.
+- **E-Mail-Anbieter:** Noch nicht endgültig ausgewählt. Polpo Mail ist vorerst zurückgestellt. Zuerst werden kostenlose Anbieter-Konten und ihre offiziellen Integrationsmöglichkeiten geprüft.
+- **Domain:** `aze-mail.de` bleibt eine Wunschdomain für später; sie ist nicht registriert.
+- **Posteingang:** gemeinsamer Posteingang für alle Adressen plus Filter pro Empfängeradresse. Jede Nachricht muss ihrer tatsächlichen Empfängeradresse zugeordnet bleiben.
 - **Weiterentwicklung:** Bestehende Dateien, Funktionen, Entscheidungen und der bisherige Entwicklungsstand werden fortgeführt. Keine Neuerstellung von Grund auf und kein Überschreiben funktionierender Bereiche ohne sachlichen Grund.
-- **Dokumentation:** Diese `README.md` ist die zentrale Beschreibung des vollständigen Projektziels und der getroffenen Grundsatzentscheidungen. Größere Änderungen und der jeweilige Umsetzungsstand werden zusätzlich in `PROJECT_STATUS.md` dokumentiert.
+- **Dokumentation:** Diese `README.md` beschreibt Projektziel und Grundsatzentscheidungen. Größere Änderungen und der Umsetzungsstand werden zusätzlich in `PROJECT_STATUS.md` dokumentiert.
 
-**Wichtig für jeden weiteren Arbeitsschritt:** Vor Änderungen am Code zuerst den aktuellen Repository-Stand prüfen. Danach gezielt ergänzen, testen und committen. Bereits vereinbarte Ziele und Entscheidungen bleiben bestehen, sofern der Nutzer sie nicht ausdrücklich ändert.
-
+**Arbeitsregel:** Vor Änderungen am Code zuerst den aktuellen Repository-Stand prüfen. Danach gezielt ergänzen, testen und committen. Bereits vereinbarte Ziele bleiben bestehen, sofern der Nutzer sie nicht ausdrücklich ändert.
 
 ## 12. Einmal-SMS für gelegentliche Registrierungen
 
