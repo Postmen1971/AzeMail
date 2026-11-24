@@ -89,6 +89,29 @@ Zu vergleichen sind:
 
 Ein eigener Mailserver ist nicht automatisch die beste Lösung. Wir wählen später die möglichst einfache, sichere und bezahlbare Variante.
 
+## 3.1 Ausgewählter E-Mail-Anbieter: Polpo Mail (kostenloser Einstieg)
+
+Als Anbieter für den ersten AZE-Mail-Ausbau wurde Polpo Mail ausgewählt. Die Auswahl gilt für die nächste Test- und Integrationsphase; vor produktiver Nutzung müssen Registrierung, Domain-Verifizierung, technische Tests und Datenschutzprüfung erfolgen.
+
+Laut aktueller offizieller Tarifbeschreibung umfasst der kostenlose Tarif:
+- Bis zu 10 Postfächer pro Domain, standardmäßig je 1 GB.
+- Bis zu 5 Aliasse pro Domain sowie eine Catch-all-Adresse.
+- Webmail, IMAP und SMTP mit TLS.
+- REST API und persönliche Zugriffstokens.
+- Webhooks für neue Nachrichten.
+- Laut Anbieter Verarbeitung und Speicherung der E-Mail-Daten in Deutschland (EU).
+
+Wichtige Einschränkungen:
+- Eine eigene Domain ist Voraussetzung und muss separat registriert werden.
+- Die 5-Alias-Grenze ist für unser Modell mit vielen frei wählbaren Absenderadressen zu berücksichtigen. Catch-all-Empfang bedeutet nicht automatisch, dass beliebige Adressen auch als Absender verwendet werden können.
+- Der kostenlose Dienst hat laut Nutzungsbedingungen keine zugesicherte Verfügbarkeit, keinen SLA und keine zugesicherte Datensicherung oder Wiederherstellung. Wichtige Nachrichten müssen unabhängig exportiert/gesichert werden.
+- API-Zugriffstokens sind Geheimnisse. Sie gehören ausschließlich in ein sicheres Backend, niemals in index.html, Browser-JavaScript oder ein öffentliches GitHub-Repository.
+
+Offizielle Informationen:
+- Preise und Leistungsumfang: https://polpomail.com/pricing
+- API-Dokumentation: https://polpomail.com/developers
+- Nutzungsbedingungen: https://polpomail.com/terms
+
 ## 4. Datenschutz – wichtige Leitlinie
 
 AZE Mail soll so wenig Daten wie praktisch möglich erfassen.
