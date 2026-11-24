@@ -2,49 +2,117 @@
 <html lang="de">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b1018"><title>AZE Mail</title>
+<meta name="theme-color" content="#0b1018"><link rel="icon" href="data:,"><title>AZE Mail</title>
 <style>
 :root{color-scheme:dark;--bg:#090e16;--panel:#121b29;--panel2:#19263a;--line:#2a3a50;--muted:#9aa9bc;--text:#f4f7fb;--blue:#4d9dff;--cyan:#4dd6d0;--violet:#9c7bff;--red:#ff737d}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 8% 0%,#172e4b 0,transparent 38%),radial-gradient(ellipse at 100% 40%,#252044 0,transparent 34%),var(--bg);color:var(--text);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
-.wrap{max-width:780px;margin:auto;padding:20px 16px 110px}.top{display:flex;align-items:center;justify-content:space-between;margin:6px 2px 26px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800}.logo{width:43px;height:43px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;box-shadow:0 8px 25px #4d9dff44}.avatar{border:1px solid var(--line);background:#182438;border-radius:50%;width:40px;height:40px;display:grid;place-items:center}
+.wrap{max-width:780px;margin:auto;padding:20px 16px 110px}.top{display:flex;align-items:center;justify-content:space-between;margin:6px 2px 26px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:800}.logo{width:43px;height:43px;border-radius:15px;font-size:14px;letter-spacing:.5px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;box-shadow:0 8px 25px #4d9dff44}.avatar{border:1px solid var(--line);background:#182438;border-radius:50%;width:40px;height:40px;display:grid;place-items:center}
 .page{display:none}.page.active{display:block}.eyebrow{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(30px,7vw,43px);line-height:1.05;margin:9px 0}.muted{color:var(--muted);line-height:1.5}.status{display:flex;align-items:center;gap:9px;background:#12251f;border:1px solid #24513e;color:#b8f4d5;padding:10px 12px;border-radius:13px;margin:20px 0;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#53d69a}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{min-height:140px;text-align:left;border:1px solid var(--line);border-radius:21px;padding:17px;background:linear-gradient(145deg,#19263a,#101824);color:var(--text);cursor:pointer}.tile:active,button:active{transform:scale(.985)}.ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:21px;margin-bottom:15px;background:#24466c}.tile:nth-child(2) .ico{background:#30305e}.tile:nth-child(3) .ico{background:#174c4b}.tile:nth-child(4) .ico{background:#49385d}.tile strong{display:block;font-size:17px}.tile small{display:block;color:var(--muted);margin-top:5px;line-height:1.4}
 .card{border:1px solid var(--line);border-radius:19px;background:#111a27eF;padding:16px;margin:14px 0}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.card h2{font-size:17px;margin:0}.btn{border:1px solid #3b5e85;background:#183457;color:#fff;border-radius:12px;padding:11px 14px;font-weight:650;cursor:pointer}.btn.primary{background:linear-gradient(100deg,#347fda,#795fe0);border:0}.btn.ghost{background:#182438;border-color:var(--line)}.btn.danger{background:#3b1c27;border-color:#783744;color:#ffc3c8}.input{width:100%;background:#0c1420;border:1px solid #34465f;border-radius:12px;color:#fff;padding:13px;font:inherit;outline:none}.input:focus{border-color:var(--blue)}.formrow{display:flex;gap:8px;margin-top:12px}.formrow .input{min-width:0;flex:1}.item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #26364a}.item:last-child{border:0}.item small{display:block;color:var(--muted);margin-top:4px}.tag{font-size:11px;padding:5px 8px;border-radius:20px;background:#163d32;color:#a9f0d0}.tag.off{background:#3b3030;color:#ffc4bd}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed #34465f;border-radius:14px;margin-top:12px}.choice{flex:1;border:1px solid var(--line);background:#182438;color:#dce8f6;border-radius:12px;padding:11px 8px;font-size:13px}.choice.active{border-color:var(--blue);background:#183457;color:#fff}.shopgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.shop{border:1px solid var(--line);border-radius:15px;background:#182438;color:white;padding:15px;text-align:left;cursor:pointer}.shop b{display:block;margin-bottom:5px}.shop small{color:var(--muted)}.browserbar{display:flex;gap:8px}.browserbar .input{flex:1;min-width:0}.framewrap{margin-top:14px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#0a101a;min-height:180px}.framewrap iframe{width:100%;height:55vh;border:0;background:white}.hint{font-size:12px;color:var(--muted);line-height:1.5}.bottom{position:fixed;bottom:0;left:0;right:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#0b111bf2;border-top:1px solid #26364d;backdrop-filter:blur(18px)}.nav{max-width:650px;margin:auto;display:flex;justify-content:space-around}.nav button{background:none;border:0;color:#9aa9bc;font-size:11px;padding:3px;display:grid;gap:4px;justify-items:center;cursor:pointer}.nav button.active{color:#80baff}.nav span{font-size:19px}.modal{display:none;position:fixed;inset:0;background:#05080edb;z-index:8;padding:20px;align-items:center;justify-content:center}.dialog{max-width:440px;width:100%;background:#142033;border:1px solid #344967;border-radius:22px;padding:21px}.dialog h3{margin:0 0 8px}.dialog p{color:var(--muted);line-height:1.5}.dialog .btn{margin-top:12px}
 @media(max-width:420px){.wrap{padding:17px 14px 100px}.grid{gap:9px}.tile{min-height:132px;padding:14px}.tile strong{font-size:16px}.formrow{flex-direction:column}.browserbar{flex-wrap:wrap}.browserbar .input{flex-basis:100%}}
+/* --- Echter Mail-Modus (mit Server) --- */
+.live-only{display:none}body.live .live-only{display:block}body.live .seg.live-only,body.live .toolbar.live-only{display:flex}body.live .demo-only{display:none}
+body.locked .bottom{display:none}.avatar{cursor:pointer;color:var(--text);font-weight:700}
+.authbox{max-width:420px;margin:8vh auto 0}.authbox h1{font-size:30px;margin:8px 0}.authbox label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}.authbox .btn{width:100%;margin-top:18px}.linkbtn{background:none;border:0;color:#8fc2ff;font:inherit;font-size:14px;padding:12px 0;cursor:pointer;width:100%}
+.err{color:#ffb3b9;font-size:13px;margin-top:10px;min-height:1em}
+.seg{display:flex;gap:6px;margin:12px 0}.seg button{flex:1;border:1px solid var(--line);background:#182438;color:#cbd8e8;border-radius:11px;padding:10px 4px;font-size:13px;cursor:pointer}.seg button.active{background:#183457;border-color:var(--blue);color:#fff}
+.toolbar{display:flex;gap:8px;margin-top:10px}.toolbar .input{flex:1;min-width:0}.iconbtn{border:1px solid var(--line);background:#182438;color:#fff;border-radius:12px;min-width:46px;font-size:18px;cursor:pointer}
+.mlist{margin-top:10px}.mrow{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #26364a;color:var(--text);padding:12px 2px;cursor:pointer;font:inherit}.mrow:last-child{border-bottom:0}.mtop{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.mfrom{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mdate{color:var(--muted);font-size:12px;flex:none}.msub{color:#c6d3e3;font-size:14px;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mrow.unread .mfrom,.mrow.unread .msub{color:#fff;font-weight:750}.mrow.unread .mfrom::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-right:7px;vertical-align:middle}.mmeta{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}.mmeta .tag{font-size:10.5px;padding:3px 7px}
+.tag.alias{background:#25305a;color:#c9d4ff}.tag.warn{background:#4a3a18;color:#ffe2a3}
+.reader h1{font-size:22px;line-height:1.25;margin:10px 0}.rmeta{font-size:13px;color:var(--muted);line-height:1.6;word-break:break-word}.rmeta b{color:#dce8f6;font-weight:600}.rbody{margin-top:14px;border-radius:15px;overflow:hidden;background:#fff}.rbody iframe{width:100%;border:0;display:block;min-height:120px;background:#fff}.rtext{white-space:pre-wrap;word-wrap:break-word;line-height:1.5;font-size:15px;background:#0c1420;border:1px solid var(--line);border-radius:15px;padding:14px;margin-top:14px}.rtext a,.rmeta a{color:#8fc2ff}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.actions .btn{flex:1;min-width:120px}.att{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #26364a}.att:last-child{border:0}.att a{color:#8fc2ff;text-decoration:none;word-break:break-all}
+textarea.input{min-height:220px;resize:vertical;line-height:1.45}.field{margin-top:12px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#1d3b2f;border:1px solid #2f6b52;color:#d7ffe9;padding:11px 16px;border-radius:13px;font-size:14px;z-index:9;display:none;max-width:90vw}
+.spin{display:inline-block;width:15px;height:15px;border:2px solid #ffffff44;border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px}@keyframes sp{to{transform:rotate(360deg)}}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}.switch input{width:22px;height:22px}
 </style></head>
 <body><main class="wrap">
-<header class="top"><div class="brand"><div class="logo">AZE</div><span>AZE Mail</span></div><div class="avatar">A</div></header>
+<header class="top"><div class="brand"><div class="logo">AZE</div><span>AZE Mail</span></div><div class="avatar" id="avatar" onclick="if(window.LIVE&&LIVE.loggedIn)go('settings')">A</div></header>
+
+<section id="auth" class="page">
+<div class="authbox">
+<div id="setupForm" style="display:none">
+<div class="eyebrow">Ersteinrichtung</div><h1>AZE Mail einrichten</h1>
+<p class="muted">Lege deinen Zugang fest. Den Einrichtungscode zeigt das Server-Fenster beim Start an.</p>
+<label for="suCode">Einrichtungscode</label><input id="suCode" class="input" autocomplete="off" autocapitalize="characters">
+<label for="suUser">Benutzername</label><input id="suUser" class="input" autocomplete="username" autocapitalize="none">
+<label for="suPass">Passwort (mind. 10 Zeichen)</label><input id="suPass" class="input" type="password" autocomplete="new-password">
+<label for="suPass2">Passwort wiederholen</label><input id="suPass2" class="input" type="password" autocomplete="new-password">
+<button class="btn primary" onclick="doSetup()">Einrichten</button><div class="err" id="suErr"></div>
+</div>
+<div id="loginForm" style="display:none">
+<div class="eyebrow">Anmelden</div><h1>Willkommen zurück</h1>
+<label for="liUser">Benutzername</label><input id="liUser" class="input" autocomplete="username" autocapitalize="none">
+<label for="liPass">Passwort</label><input id="liPass" class="input" type="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+<button class="btn primary" onclick="doLogin()">Anmelden</button><div class="err" id="liErr"></div>
+<button class="linkbtn" id="toPin" style="display:none" onclick="showAuth('pin')">Mit PIN anmelden</button>
+</div>
+<div id="pinForm" style="display:none">
+<div class="eyebrow">Schnellzugang</div><h1>PIN eingeben</h1>
+<p class="muted">PIN für dieses Gerät.</p>
+<input id="pinInput" class="input" type="password" inputmode="numeric" autocomplete="off" maxlength="8" style="font-size:24px;letter-spacing:8px;text-align:center" onkeydown="if(event.key==='Enter')doPinLogin()">
+<button class="btn primary" onclick="doPinLogin()">Entsperren</button><div class="err" id="pinErr"></div>
+<button class="linkbtn" onclick="showAuth('login')">Mit Passwort anmelden</button>
+</div>
+</div>
+</section>
 
 <section id="home" class="page active">
 <div class="hero"><div class="eyebrow">Dein privater Arbeitsbereich</div><h1>Alles an einem<br>Ort.</h1><p class="muted">Deine E-Mail-Adressen, dein Browser und deine Lieblingsshops – übersichtlich in einer Anwendung.</p></div>
-<div class="status"><i class="dot"></i><span>Funktions-Prototyp · Mailserver und Proxy noch nicht verbunden</span></div>
+<div class="status"><i class="dot"></i><span id="homeStatus">Funktions-Prototyp · Mailserver und Proxy noch nicht verbunden</span></div>
 <div class="grid">
 <button class="tile" onclick="go('mail')"><div class="ico">✉</div><strong>Mail</strong><small>Adressen und Posteingang</small></button>
 <button class="tile" onclick="go('browser')"><div class="ico">◎</div><strong>Browser</strong><small>Webseiten und Verbindung</small></button>
 <button class="tile" onclick="go('shopping')"><div class="ico">🛍</div><strong>Shopping</strong><small>Deine Lieblingsshops</small></button>
 <button class="tile" onclick="go('settings')"><div class="ico">⚙</div><strong>Verwaltung</strong><small>Datenschutz und Einstellungen</small></button>
 </div>
-<div class="card"><div class="row"><h2>Browser-Verbindung</h2><span class="tag">Auswahl</span></div><p class="muted" style="font-size:14px">Gewählter Weg: <b id="homeWay">Direktverbindung</b></p><p class="hint">In diesem Prototyp ist der Schalter nur eine Vorschau. Er leitet noch keinen Datenverkehr über einen Server.</p></div>
+<div class="card"><div class="row"><h2>Browser-Verbindung</h2><span class="tag">Auswahl</span></div><p class="muted" style="font-size:14px">Gewählter Weg: <b id="homeWay">Direktverbindung</b></p><p class="hint demo-only">In diesem Prototyp ist der Schalter nur eine Vorschau. Er leitet noch keinen Datenverkehr über einen Server.</p><p class="hint live-only">Bei „Deutscher Server“ lädt der Browser-Bereich Seiten über deinen AZE-Server. Prüfen kannst du das unter Browser → „Verbindung testen“.</p></div>
 </section>
 
 <section id="mail" class="page">
-<div class="eyebrow">AZE Mail</div><h1>Deine Mail-Adressen</h1><p class="muted">Adressen verwalten und später mit echten Postfächern verbinden.</p>
-<div class="card"><h2>Neue Wunschadresse vormerken</h2><p class="hint">Trage einen gewünschten Namen ein. Die Adresse wird hier zunächst nur auf diesem Gerät gespeichert – sie wird noch nicht beim Mailanbieter angelegt.</p><div class="formrow"><input id="localName" class="input" placeholder="z. B. aze.projekt" autocomplete="off"><button class="btn primary" onclick="addAddress()">Hinzufügen</button></div><p class="hint">Vorschau-Endung: @aze-mail.de (Domain und Verfügbarkeit noch nicht bestätigt)</p></div>
-<div class="card"><div class="row"><h2>Meine Adressen</h2><span class="tag" id="addrCount">0</span></div><div id="addresses" class="empty">Noch keine Adressen vorgemerkt.</div></div>
+<div class="eyebrow">AZE Mail</div><h1 class="demo-only">Deine Mail-Adressen</h1><h1 class="live-only">Mail</h1><p class="muted demo-only">Adressen verwalten und später mit echten Postfächern verbinden.</p>
 <div class="card">
-<div class="row"><h2>Posteingang</h2><span class="tag">Ansicht geplant</span></div>
-<p class="hint">Ein gemeinsamer Posteingang mit Filter für jede einzelne Empfängeradresse.</p>
+<div class="row"><h2 id="inboxTitle">Posteingang</h2><span class="tag demo-only">Ansicht geplant</span><button class="btn primary live-only" onclick="openCompose()">✎ Neue Mail</button></div>
+<div class="seg live-only" id="folderTabs"><button data-folder="inbox" class="active" onclick="setFolder('inbox')">Posteingang</button><button data-folder="sent" onclick="setFolder('sent')">Gesendet</button><button data-folder="trash" onclick="setFolder('trash')">Papierkorb</button></div>
+<p class="hint demo-only">Ein gemeinsamer Posteingang mit Filter für jede einzelne Empfängeradresse.</p>
 <label for="mailAddressFilter" class="hint">Nach Empfängeradresse filtern</label>
 <select id="mailAddressFilter" class="input" style="margin-top:7px" onchange="setMailFilter(this.value)">
 <option value="all">Alle Adressen anzeigen</option></select>
+<div class="toolbar live-only" id="mailToolbar"><input id="mailSearch" class="input" type="search" placeholder="Suchen (Betreff, Absender)" onkeydown="if(event.key==='Enter')loadInbox()"><button class="iconbtn" title="Aktualisieren" aria-label="Aktualisieren" onclick="loadInbox()">↻</button></div>
 <div id="mailInbox" class="empty">Noch kein echter Posteingang verbunden.<br><small>Nach der Anbindung eines Mailanbieters erscheinen hier deine Nachrichten. Du kannst dann alle zusammen oder gefiltert nach Adresse lesen.</small></div>
+<button id="moreBtn" class="btn ghost" style="display:none;width:100%;margin-top:10px" onclick="loadInbox(true)">Ältere Nachrichten laden</button>
+</div>
+<div class="card"><h2 class="demo-only">Neue Wunschadresse vormerken</h2><h2 class="live-only">Adresse hinzufügen</h2><p class="hint demo-only">Trage einen gewünschten Namen ein. Die Adresse wird hier zunächst nur auf diesem Gerät gespeichert – sie wird noch nicht beim Mailanbieter angelegt.</p><p class="hint live-only">Trage eine zusätzliche Adresse deines Mailkontos ein (z. B. eine bei GMX angelegte Alias-Adresse). AZE Mail ordnet eingehende Nachrichten dieser Adresse zu und nutzt sie beim Antworten als Absender. Die Adresse muss vorher beim Anbieter angelegt sein.</p><div class="formrow"><input id="localName" class="input" placeholder="z. B. aze.projekt" autocomplete="off" autocapitalize="none" onkeydown="if(event.key==='Enter')addAddress()"><button class="btn primary" onclick="addAddress()">Hinzufügen</button></div><p class="hint demo-only">Vorschau-Endung: @aze-mail.de (Domain und Verfügbarkeit noch nicht bestätigt)</p></div>
+<div class="card"><div class="row"><h2>Meine Adressen</h2><span class="tag" id="addrCount">0</span></div><div id="addresses" class="empty">Noch keine Adressen vorgemerkt.</div><p class="hint live-only">Pausierte Adressen empfangen weiter (z. B. Passwort-Mails) und bleiben im Posteingang sichtbar, werden aber nicht als Absender angeboten.</p></div>
+</section>
+
+<section id="reader" class="page reader">
+<button class="btn ghost" onclick="go('mail')">← Zurück</button>
+<h1 id="rSubject"></h1>
+<div class="rmeta" id="rMeta"></div>
+<div class="mmeta" id="rTags"></div>
+<div id="rBody"></div>
+<button id="rImages" class="btn ghost" style="display:none;width:100%;margin-top:10px" onclick="renderReaderBody(true)">Externe Bilder laden</button>
+<div class="card" id="rAttCard" style="display:none"><h2>Anhänge</h2><div id="rAtts"></div></div>
+<div class="actions" id="rActions"></div>
+</section>
+
+<section id="compose" class="page">
+<div class="row"><button class="btn ghost" onclick="cancelCompose()">Abbrechen</button><button class="btn primary" id="sendBtn" onclick="sendMail()">Senden</button></div>
+<div class="card">
+<div class="field"><label for="cFrom">Von</label><select id="cFrom" class="input"></select><div class="hint" id="cFromNote" style="color:#ffe2a3;margin-top:6px"></div></div>
+<div class="field"><label for="cTo">An</label><input id="cTo" class="input" type="email" multiple autocomplete="email" autocapitalize="none" placeholder="name@beispiel.de, weitere@beispiel.de"></div>
+<div class="field"><label for="cCc">Cc (optional)</label><input id="cCc" class="input" type="email" multiple autocomplete="email" autocapitalize="none"></div>
+<div class="field"><label for="cSubject">Betreff</label><input id="cSubject" class="input"></div>
+<div class="field"><label for="cText">Nachricht</label><textarea id="cText" class="input"></textarea></div>
+<div class="field"><label for="cFiles">Anhänge (zusammen max. 15 MB)</label><input id="cFiles" type="file" multiple class="input"></div>
 </div>
 </section>
 
 <section id="browser" class="page">
 <div class="eyebrow">Webzugang</div><h1>Browser</h1><p class="muted">Webadresse eingeben und öffnen.</p>
-<div class="card"><div class="browserbar"><input id="url" class="input" placeholder="https://www.beispiel.de" inputmode="url"><button class="btn primary" onclick="openSite()">Öffnen</button></div><p class="hint">Viele Shops und Plattformen blockieren die Anzeige in eingebetteten Fenstern. Dann „In Safari öffnen“ verwenden.</p><div id="browserResult" class="empty">Noch keine Webseite geöffnet.</div><button id="externalBtn" class="btn ghost" style="display:none;width:100%;margin-top:10px" onclick="openExternal()">In Safari öffnen</button></div>
-<div class="card"><div class="row"><h2>Verbindungsweg</h2><span class="tag">Noch nicht verbunden</span></div><p class="muted" style="font-size:14px">Aktuelle Auswahl: <b id="currentWay">Direktverbindung</b></p><div class="formrow"><button id="serverChoice" class="choice" onclick="setWay('Deutscher Server')">Deutscher Server</button><button id="directChoice" class="choice active" onclick="setWay('Direktverbindung')">Direktverbindung</button></div><p class="hint">Der Umschalter speichert aktuell nur deine Auswahl. Für den deutschen Ausgang brauchen wir später einen echten Proxy-Server. Die Auswahl ändert deine IP-Adresse noch nicht.</p></div>
+<div class="card"><div class="browserbar"><input id="url" class="input" placeholder="https://www.beispiel.de" inputmode="url"><button class="btn primary" onclick="openSite()">Öffnen</button></div><p class="hint">Viele Shops und Plattformen blockieren die Anzeige in eingebetteten Fenstern. Dann „Extern öffnen“ verwenden.</p><div id="browserResult" class="empty">Noch keine Webseite geöffnet.</div><button id="externalBtn" class="btn ghost" style="display:none;width:100%;margin-top:10px" onclick="openExternal()">Extern öffnen</button></div>
+<div class="card"><div class="row"><h2>Verbindungsweg</h2><span class="tag" id="wayTag">Noch nicht verbunden</span></div><p class="muted" style="font-size:14px">Aktuelle Auswahl: <b id="currentWay">Direktverbindung</b></p><div class="formrow"><button id="serverChoice" class="choice" onclick="setWay('Deutscher Server')">Deutscher Server</button><button id="directChoice" class="choice active" onclick="setWay('Direktverbindung')">Direktverbindung</button></div><p class="hint demo-only">Der Umschalter speichert aktuell nur deine Auswahl. Für den deutschen Ausgang brauchen wir später einen echten Proxy-Server. Die Auswahl ändert deine IP-Adresse noch nicht.</p><p class="hint live-only"><b>Deutscher Server:</b> „Öffnen“ lädt die Seite über deinen AZE-Server – die Webseite sieht dessen IP-Adresse. Das ist eine vereinfachte Ansicht ohne Skripte und ohne Logins. <b>Direktverbindung:</b> normale Verbindung deines Geräts. „Extern öffnen“ nutzt immer die Direktverbindung.</p><button class="btn ghost live-only" style="width:100%;margin-top:10px" onclick="testConnection()">Verbindung testen</button><div id="connResult" class="hint live-only" style="margin-top:8px"></div></div>
 </section>
 
 <section id="shopping" class="page">
@@ -55,8 +123,11 @@
 
 <section id="settings" class="page">
 <div class="eyebrow">Kontrolle</div><h1>Verwaltung</h1><p class="muted">Einstellungen und Datenschutz.</p>
-<div class="card"><h2>Datenschutz-Grundsätze</h2><div class="item"><div><b>AZE-eigene Tracker</b><small>Keine Analyse- oder Werbetracker eingebaut.</small></div><span class="tag">Aus</span></div><div class="item"><div><b>Cookies</b><small>Diese Vorschau setzt keine eigenen Cookies.</small></div><span class="tag">Keine</span></div><div class="item"><div><b>Gerätekennungen</b><small>Die Anwendung fragt keine Geräte-ID ab.</small></div><span class="tag">Nicht erfasst</span></div></div>
-<div class="card"><h2>Lokale Daten</h2><p class="hint">Vorgemerkte Adressen und Shop-Favoriten werden in diesem Browser auf deinem Gerät gespeichert (localStorage), nicht als Cookies. Beim Löschen der Website-Daten können sie verloren gehen.</p><button class="btn danger" onclick="clearLocal()">Lokale AZE-Daten löschen</button></div>
+<div class="card"><h2>Datenschutz-Grundsätze</h2><div class="item"><div><b>AZE-eigene Tracker</b><small>Keine Analyse- oder Werbetracker eingebaut.</small></div><span class="tag">Aus</span></div><div class="item"><div><b>Cookies</b><small class="demo-only">Diese Vorschau setzt keine eigenen Cookies.</small><small class="live-only">Nur ein notwendiges Anmelde-Cookie für die Sitzung – keine Tracking- oder Werbe-Cookies.</small></div><span class="tag demo-only">Keine</span><span class="tag live-only">Nur Sitzung</span></div><div class="item live-only"><div><b>E-Mail-Inhalte</b><small>Werden nicht auf dem AZE-Server gespeichert, sondern bei Bedarf direkt aus deinem Postfach geladen. Externe Bilder in Mails sind standardmäßig blockiert (Schutz vor Lesebestätigungs-Pixeln).</small></div><span class="tag">Live</span></div><div class="item"><div><b>Gerätekennungen</b><small>Die Anwendung fragt keine Geräte-ID ab.</small></div><span class="tag">Nicht erfasst</span></div></div>
+<div class="card"><h2>Lokale Daten</h2><p class="hint">Vorgemerkte Adressen und Shop-Favoriten werden in diesem Browser auf deinem Gerät gespeichert (localStorage), nicht als Cookies. Beim Löschen der Website-Daten können sie verloren gehen.</p><p class="hint live-only">Im echten Betrieb liegen deine Mail-Adressen auf deinem AZE-Server. Auf dem Gerät bleiben nur Shop-Favoriten, die Verbindungswahl und – falls eingerichtet – der geheime PIN-Schlüssel dieses Geräts.</p><button class="btn danger" onclick="clearLocal()">Lokale AZE-Daten löschen</button></div>
+<div class="card live-only" id="mailAccountCard"><h2>Mailkonto</h2><div id="mailAccountBody" class="hint">Lädt …</div></div>
+<div class="card live-only"><h2>Login und PIN</h2><div id="securityBody" class="hint">Lädt …</div></div>
+<div class="card demo-only"><h2>Echten Betrieb starten</h2><p class="hint">Diese Seite läuft gerade als Demo (z. B. über GitHub Pages). Für echtes Empfangen und Senden startest du den AZE-Mail-Server (kostenlos, ohne Zusatzpakete) und öffnest AZE Mail über dessen Adresse. Anleitung: <a href="https://github.com/Postmen1971/AzeMail/blob/main/INSTALLATION.md" target="_blank" rel="noopener noreferrer" style="color:#8fc2ff">INSTALLATION.md ↗</a></p></div>
 <div class="card">
 <h2>Einmal-SMS</h2>
 <p class="hint">Externe Anbieter für gelegentliche Registrierungscodes. AZE Mail stellt selbst keine Telefonnummer bereit und empfängt oder speichert keine SMS.</p>
@@ -65,7 +136,7 @@
 <div class="item"><div><b>3. NumberOTP</b><small>Kurzzeit-Aktivierung · kein bestätigtes PayPal; Zahlungsmethoden und deutschen Nummernpreis vorab prüfen.</small><a href="https://www.numberotp.com/de/virtuelle-telefonnummer" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:7px;color:#8fc2ff">NumberOTP öffnen ↗</a></div></div>
 <p class="hint">Wichtig: SMS-Zustellung innerhalb von zwei Minuten ist bei keinem Anbieter garantiert. Virtuelle Nummern können von Kleinanzeigen, markt.de oder anderen Plattformen abgelehnt werden. Nur für unkritische Registrierungen verwenden – nicht für Bank-, Zahlungs- oder wichtige E-Mail-Konten. Die Anbieter sind externe Dienste; deren Preise, Datenschutz und Verfügbarkeit können sich ändern.</p>
 </div>
-<div class="card"><h2>Login und PIN</h2><p class="hint">Login und PIN sind noch nicht eingerichtet. Eine sichere Anmeldung benötigt ein Backend. Wir bauen hier bewusst noch keine unsichere Schein-Anmeldung ein.</p></div>
+<div class="card demo-only"><h2>Login und PIN</h2><p class="hint">Login und PIN sind noch nicht eingerichtet. Eine sichere Anmeldung benötigt ein Backend. Wir bauen hier bewusst noch keine unsichere Schein-Anmeldung ein.</p></div>
 </section>
 </main>
 <footer class="bottom"><nav class="nav">
@@ -75,22 +146,25 @@
 <button data-page="shopping" onclick="go('shopping')"><span>🛍</span>Shops</button>
 <button data-page="settings" onclick="go('settings')"><span>•••</span>Mehr</button>
 </nav></footer>
+<div id="toast" class="toast"></div>
 <div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="dialog"><h3 id="modalTitle"></h3><p id="modalText"></p><button class="btn primary" onclick="closeModal()">Okay</button></div></div>
 <script>
+const LIVE={on:false,loggedIn:false,status:null,addresses:[],folder:'inbox',filter:'all',messages:[],nextBefore:0,current:null,remoteImages:false,reply:null};
 const KEY='aze_mail_proto_v1';
 let data={addresses:[],shops:[{name:'Amazon',url:'https://www.amazon.de'},{name:'eBay',url:'https://www.ebay.de'},{name:'markt.de',url:'https://www.markt.de'}],way:'Direktverbindung'};
 try{const saved=JSON.parse(localStorage.getItem(KEY)||'null');if(saved)data={...data,...saved}}catch(e){}
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){alert('Speichern auf diesem Gerät war nicht möglich.')}}
-function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo(0,0);if(id==='mail'){renderAddresses();renderMailFilter();}if(id==='shopping')renderShops()}
+function go(id){if(LIVE.on&&!LIVE.loggedIn&&id!=='auth')id='auth';const navId={reader:'mail',compose:'mail'}[id]||id;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===navId));document.body.classList.toggle('locked',id==='auth');window.scrollTo(0,0);if(id==='mail'){renderAddresses();renderMailFilter();if(LIVE.on)loadInbox()}if(id==='shopping')renderShops();if(id==='settings'&&LIVE.on)renderLiveSettings()}
 function modal(t,m){document.getElementById('modalTitle').textContent=t;document.getElementById('modalText').textContent=m;document.getElementById('modal').style.display='flex'}
 function closeModal(){document.getElementById('modal').style.display='none'}
-function addAddress(){let n=document.getElementById('localName').value.trim().toLowerCase();if(!/^[a-z0-9._-]{2,40}$/.test(n)){modal('Name prüfen','Bitte 2 bis 40 Zeichen verwenden: Buchstaben, Zahlen, Punkt, Bindestrich oder Unterstrich.');return}let email=n+'@aze-mail.de';if(data.addresses.some(a=>a.email===email)){modal('Schon vorhanden','Diese Adresse ist bereits vorgemerkt.');return}data.addresses.push({email,active:true});persist();document.getElementById('localName').value='';renderAddresses()}
-function toggleAddress(i){data.addresses[i].active=!data.addresses[i].active;persist();renderAddresses()}
-function deleteAddress(i){if(confirm('Diese vorgemerkte Adresse wirklich löschen?')){data.addresses.splice(i,1);persist();renderAddresses()}}
-function renderAddresses(){let el=document.getElementById('addresses');document.getElementById('addrCount').textContent=data.addresses.length;renderMailFilter();if(!data.addresses.length){el.className='empty';el.textContent='Noch keine Adressen vorgemerkt.';return}el.className='';el.innerHTML='';data.addresses.forEach((a,i)=>{let d=document.createElement('div');d.className='item';let info=document.createElement('div');let b=document.createElement('b');b.textContent=a.email;let sm=document.createElement('small');sm.textContent='Nur lokal vorgemerkt – kein echtes Postfach';info.append(b,sm);let controls=document.createElement('div');controls.style.display='flex';controls.style.gap='6px';let t=document.createElement('button');t.className='btn ghost';t.textContent=a.active?'Pausieren':'Aktivieren';t.onclick=()=>toggleAddress(i);let del=document.createElement('button');del.className='btn danger';del.textContent='×';del.setAttribute('aria-label','Löschen');del.onclick=()=>deleteAddress(i);controls.append(t,del);d.append(info,controls);el.append(d)})}
+function addAddress(){if(LIVE.on)return liveAddAddress();let n=document.getElementById('localName').value.trim().toLowerCase();if(!/^[a-z0-9._-]{2,40}$/.test(n)){modal('Name prüfen','Bitte 2 bis 40 Zeichen verwenden: Buchstaben, Zahlen, Punkt, Bindestrich oder Unterstrich.');return}let email=n+'@aze-mail.de';if(data.addresses.some(a=>a.email===email)){modal('Schon vorhanden','Diese Adresse ist bereits vorgemerkt.');return}data.addresses.push({email,active:true});persist();document.getElementById('localName').value='';renderAddresses()}
+function toggleAddress(i){if(LIVE.on)return;data.addresses[i].active=!data.addresses[i].active;persist();renderAddresses()}
+function deleteAddress(i){if(LIVE.on)return;if(confirm('Diese vorgemerkte Adresse wirklich löschen?')){data.addresses.splice(i,1);persist();renderAddresses()}}
+function renderAddresses(){if(LIVE.on)return liveRenderAddresses();let el=document.getElementById('addresses');document.getElementById('addrCount').textContent=data.addresses.length;renderMailFilter();if(!data.addresses.length){el.className='empty';el.textContent='Noch keine Adressen vorgemerkt.';return}el.className='';el.innerHTML='';data.addresses.forEach((a,i)=>{let d=document.createElement('div');d.className='item';let info=document.createElement('div');let b=document.createElement('b');b.textContent=a.email;let sm=document.createElement('small');sm.textContent='Nur lokal vorgemerkt – kein echtes Postfach';info.append(b,sm);let controls=document.createElement('div');controls.style.display='flex';controls.style.gap='6px';let t=document.createElement('button');t.className='btn ghost';t.textContent=a.active?'Pausieren':'Aktivieren';t.onclick=()=>toggleAddress(i);let del=document.createElement('button');del.className='btn danger';del.textContent='×';del.setAttribute('aria-label','Löschen');del.onclick=()=>deleteAddress(i);controls.append(t,del);d.append(info,controls);el.append(d)})}
 let selectedMailAddress='all';
-function setMailFilter(value){selectedMailAddress=value;renderMailFilter();renderInboxPlaceholder()}
+function setMailFilter(value){selectedMailAddress=value;if(LIVE.on){LIVE.filter=value;return loadInbox()}renderMailFilter();renderInboxPlaceholder()}
 function renderMailFilter(){
+ if(LIVE.on)return liveRenderFilter();
  const select=document.getElementById('mailAddressFilter');if(!select)return;
  const previous=selectedMailAddress;select.innerHTML='';
  const all=document.createElement('option');all.value='all';all.textContent='Alle Adressen anzeigen';select.append(all);
@@ -99,19 +173,349 @@ function renderMailFilter(){
  renderInboxPlaceholder();
 }
 function renderInboxPlaceholder(){
- const box=document.getElementById('mailInbox');if(!box)return;
+ const box=document.getElementById('mailInbox');if(!box||LIVE.on)return;
  box.className='empty';
  if(selectedMailAddress==='all')box.innerHTML='Noch kein echter Posteingang verbunden.<br><small>Nach der Anbindung eines Mailanbieters erscheinen hier deine Nachrichten aus allen Adressen.</small>';
  else box.textContent='Filter aktiv: '+selectedMailAddress+'. Noch kein echter Posteingang verbunden.';
 }
 function validUrl(raw){try{let u=new URL(raw.includes('://')?raw:'https://'+raw);if(!['http:','https:'].includes(u.protocol))return null;return u.href}catch(e){return null}}
 let lastUrl='';
-function openSite(){let v=validUrl(document.getElementById('url').value.trim());if(!v){modal('Webadresse prüfen','Bitte eine gültige Adresse mit Domain eingeben.');return}lastUrl=v;document.getElementById('browserResult').className='empty';document.getElementById('browserResult').textContent='Versuche, die Seite innerhalb der Anwendung zu laden: '+v;document.getElementById('externalBtn').style.display='block';let old=document.getElementById('siteFrame');if(old)old.remove();let wrap=document.createElement('div');wrap.className='framewrap';let frame=document.createElement('iframe');frame.id='siteFrame';frame.src=v;frame.title='Externe Webseite';frame.referrerPolicy='no-referrer';frame.sandbox='allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox';wrap.append(frame);document.getElementById('browserResult').after(wrap)}
+function openSite(){let v=validUrl(document.getElementById('url').value.trim());if(!v){modal('Webadresse prüfen','Bitte eine gültige Adresse mit Domain eingeben.');return}lastUrl=v;const viaServer=LIVE.on&&LIVE.loggedIn&&data.way==='Deutscher Server';document.getElementById('browserResult').className='empty';document.getElementById('browserResult').textContent=(viaServer?'Lade über deinen AZE-Server (deutscher Server): ':'Versuche, die Seite innerhalb der Anwendung zu laden: ')+v;document.getElementById('externalBtn').style.display='block';let old=document.getElementById('siteFrame');if(old)old.remove();let wrap=document.createElement('div');wrap.className='framewrap';let frame=document.createElement('iframe');frame.id='siteFrame';frame.src=viaServer?'/proxy?url='+encodeURIComponent(v):v;frame.title='Externe Webseite';frame.referrerPolicy='no-referrer';frame.sandbox='allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox';wrap.append(frame);document.getElementById('browserResult').after(wrap)}
 function openExternal(){if(lastUrl)window.open(lastUrl,'_blank','noopener,noreferrer')}
 function setWay(w){data.way=w;persist();renderWay()}
-function renderWay(){['homeWay','currentWay'].forEach(id=>document.getElementById(id).textContent=data.way);document.getElementById('serverChoice').classList.toggle('active',data.way==='Deutscher Server');document.getElementById('directChoice').classList.toggle('active',data.way==='Direktverbindung')}
+function renderWay(){['homeWay','currentWay'].forEach(id=>document.getElementById(id).textContent=data.way);const wt=document.getElementById('wayTag');if(wt)wt.textContent=LIVE.on?'Aktiv':'Noch nicht verbunden';document.getElementById('serverChoice').classList.toggle('active',data.way==='Deutscher Server');document.getElementById('directChoice').classList.toggle('active',data.way==='Direktverbindung')}
 function addShop(){let n=document.getElementById('shopName').value.trim(),u=validUrl(document.getElementById('shopUrl').value.trim());if(!n||!u){modal('Angaben fehlen','Bitte Shopname und gültige Webadresse eintragen.');return}data.shops.push({name:n,url:u});persist();document.getElementById('shopName').value='';document.getElementById('shopUrl').value='';renderShops()}
 function renderShops(){let el=document.getElementById('shops');el.innerHTML='';data.shops.forEach((s,i)=>{let b=document.createElement('button');b.className='shop';let name=document.createElement('b');name.textContent=s.name;let small=document.createElement('small');small.textContent=new URL(s.url).hostname;b.append(name,small);b.onclick=()=>{lastUrl=s.url;window.open(s.url,'_blank','noopener,noreferrer')};el.append(b)})}
 function clearLocal(){if(confirm('Alle lokal gespeicherten AZE-Adressen und Shop-Favoriten löschen?')){localStorage.removeItem(KEY);data={addresses:[],shops:[],way:'Direktverbindung'};renderAddresses();renderMailFilter();renderShops();renderWay();modal('Lokale Daten gelöscht','Die AZE-Prototypdaten wurden aus diesem Browser entfernt.')}}
-renderAddresses();renderShops();renderWay();
+/* ===== Echter Betrieb: Verbindung zum AZE-Mail-Server ===== */
+const DEVKEY='aze_mail_device_v1';
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',3500)}
+function getDevice(){try{return JSON.parse(localStorage.getItem(DEVKEY)||'null')}catch(e){return null}}
+function setDevice(d){try{if(d)localStorage.setItem(DEVKEY,JSON.stringify(d));else localStorage.removeItem(DEVKEY)}catch(e){}}
+function fmtSize(n){return n>1048576?(n/1048576).toFixed(1).replace('.',',')+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+function fmtDate(iso,full){if(!iso)return '';const d=new Date(iso),now=new Date();if(full)return d.toLocaleString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});if(d.toDateString()===now.toDateString())return d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});return d.toLocaleDateString('de-DE',d.getFullYear()===now.getFullYear()?{day:'2-digit',month:'2-digit'}:{day:'2-digit',month:'2-digit',year:'2-digit'})}
+function fmtAddr(a){return a?(a.name?a.name+' <'+a.address+'>':a.address):''}
+function linkify(t){return esc(t).replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)\]'"])/g,'<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')}
+
+async function api(path,opts){
+ opts=opts||{};const o={method:opts.method||'GET',headers:{'X-AZE':'1'},credentials:'same-origin',cache:'no-store'};
+ if(opts.body!==undefined){o.headers['Content-Type']='application/json';o.body=JSON.stringify(opts.body)}
+ let r;try{r=await fetch(path,o)}catch(e){throw new Error('AZE-Server nicht erreichbar. Internetverbindung prüfen.')}
+ let d={};try{d=await r.json()}catch(e){}
+ if(r.status===401&&d.code==='login'){LIVE.loggedIn=false;showAuth();throw new Error('Bitte erneut anmelden.')}
+ if(!r.ok){const e=new Error(d.error||('Fehler '+r.status));e.status=r.status;e.code=d.code;throw e}
+ return d}
+
+async function detectServer(){
+ if(location.protocol==='file:')return null;
+ try{const ctl=new AbortController();const tm=setTimeout(()=>ctl.abort(),4000);const r=await fetch('/api/status',{cache:'no-store',credentials:'same-origin',signal:ctl.signal});clearTimeout(tm);if(!r.ok)return null;const d=await r.json();return d&&d.app==='aze-mail'?d:null}catch(e){return null}}
+
+async function initLive(){
+ const st=await detectServer();if(!st)return;
+ LIVE.on=true;LIVE.status=st;LIVE.loggedIn=st.loggedIn;document.body.classList.add('live');
+ $('localName').placeholder='z. B. aze.shop@gmx.de';$('localName').type='email';
+ renderWay();
+ if(!st.loggedIn)return showAuth();
+ await afterLogin()}
+
+async function refreshStatus(){LIVE.status=await api('/api/status');LIVE.loggedIn=LIVE.status.loggedIn;return LIVE.status}
+
+function showAuth(mode){
+ const st=LIVE.status||{};const dev=getDevice();
+ if(!mode)mode=!st.setUp?'setup':(dev?'pin':'login');
+ ['setup','login','pin'].forEach(m=>$(m+'Form').style.display=m===mode?'block':'none');
+ $('toPin').style.display=dev?'block':'none';
+ go('auth');
+ setTimeout(()=>{const f=$({setup:'suCode',login:'liUser',pin:'pinInput'}[mode]);if(f)try{f.focus()}catch(e){}},60)}
+
+async function doSetup(){
+ $('suErr').textContent='';
+ if($('suPass').value!==$('suPass2').value){$('suErr').textContent='Die Passwörter stimmen nicht überein.';return}
+ try{await api('/api/setup',{method:'POST',body:{code:$('suCode').value,username:$('suUser').value,password:$('suPass').value}});
+  ['suCode','suPass','suPass2'].forEach(i=>$(i).value='');await refreshStatus();await afterLogin()}
+ catch(e){$('suErr').textContent=e.message}}
+
+async function doLogin(){
+ $('liErr').textContent='';
+ try{await api('/api/login',{method:'POST',body:{username:$('liUser').value,password:$('liPass').value}});$('liPass').value='';await refreshStatus();await afterLogin()}
+ catch(e){$('liErr').textContent=e.message}}
+
+async function doPinLogin(){
+ const dev=getDevice();$('pinErr').textContent='';
+ if(!dev)return showAuth('login');
+ try{await api('/api/login/pin',{method:'POST',body:{deviceId:dev.deviceId,deviceToken:dev.deviceToken,pin:$('pinInput').value}});$('pinInput').value='';await refreshStatus();await afterLogin()}
+ catch(e){$('pinInput').value='';if(e.code==='device'){setDevice(null);showAuth('login');$('liErr').textContent=e.message}else $('pinErr').textContent=e.message}}
+
+async function afterLogin(){
+ LIVE.loggedIn=true;const st=LIVE.status||{};
+ $('avatar').textContent=String(st.username||'A').charAt(0).toUpperCase();
+ updateHomeStatus();
+ try{await loadAddresses()}catch(e){}
+ go(st.mail&&st.mail.configured?'mail':'settings');
+ if(!(st.mail&&st.mail.configured))toast('Angemeldet. Jetzt dein Mailkonto verbinden.')}
+
+function updateHomeStatus(){
+ const st=LIVE.status||{};const m=st.mail||{};
+ let t=m.configured?'Verbunden mit '+m.email:'Angemeldet · Mailkonto noch nicht verbunden (Mehr → Mailkonto)';
+ if(!st.https&&!/^(localhost|127\.0\.0\.1)$/.test(location.hostname))t+=' · Achtung: ohne HTTPS';
+ $('homeStatus').textContent=t}
+
+async function loadAddresses(){const d=await api('/api/addresses');LIVE.addresses=d.addresses||[];liveRenderAddresses();liveRenderFilter()}
+
+function liveRenderAddresses(){
+ const el=$('addresses');const list=LIVE.addresses;$('addrCount').textContent=list.length;
+ if(!list.length){el.className='empty';el.textContent='Noch kein Mailkonto verbunden. Unter „Mehr“ → „Mailkonto“ einrichten.';return}
+ el.className='';el.innerHTML='';
+ list.forEach(a=>{
+  const d=document.createElement('div');d.className='item';
+  const info=document.createElement('div');info.style.minWidth='0';
+  const b=document.createElement('b');b.textContent=a.email;b.style.wordBreak='break-all';
+  const sm=document.createElement('small');sm.textContent=a.primary?'Hauptadresse des Mailkontos':(a.label?a.label+' · ':'')+(a.active?'Aktiv':'Pausiert – empfängt weiter, wird nicht als Absender angeboten');
+  info.append(b,sm);d.append(info);
+  if(!a.primary){
+   const c=document.createElement('div');c.style.display='flex';c.style.gap='6px';
+   const t=document.createElement('button');t.className='btn ghost';t.textContent=a.active?'Pausieren':'Aktivieren';t.onclick=()=>liveToggleAddress(a);
+   const del=document.createElement('button');del.className='btn danger';del.textContent='×';del.setAttribute('aria-label','Entfernen');del.onclick=()=>liveDeleteAddress(a);
+   c.append(t,del);d.append(c)
+  }else{const tg=document.createElement('span');tg.className='tag';tg.textContent='Haupt';d.append(tg)}
+  el.append(d)})}
+
+async function liveAddAddress(){
+ const v=$('localName').value.trim();
+ try{const d=await api('/api/addresses',{method:'POST',body:{email:v}});$('localName').value='';LIVE.addresses=d.addresses;liveRenderAddresses();liveRenderFilter();toast('Adresse hinzugefügt')}
+ catch(e){modal('Adresse prüfen',e.message)}}
+async function liveToggleAddress(a){
+ try{const d=await api('/api/addresses',{method:'PATCH',body:{email:a.email,active:!a.active}});LIVE.addresses=d.addresses;liveRenderAddresses();liveRenderFilter()}
+ catch(e){modal('Fehler',e.message)}}
+async function liveDeleteAddress(a){
+ if(!confirm('„'+a.email+'“ endgültig aus AZE Mail entfernen?\n\nBeim Mailanbieter bleibt die Adresse bestehen und bereits empfangene Nachrichten bleiben im Postfach. Tipp: „Pausieren“ reicht meistens.'))return;
+ try{const d=await api('/api/addresses?email='+encodeURIComponent(a.email),{method:'DELETE'});LIVE.addresses=d.addresses;if(LIVE.filter===a.email)LIVE.filter='all';liveRenderAddresses();liveRenderFilter();toast('Adresse entfernt')}
+ catch(e){modal('Fehler',e.message)}}
+
+function liveRenderFilter(){
+ const sel=$('mailAddressFilter');sel.innerHTML='';
+ const all=document.createElement('option');all.value='all';all.textContent='Alle Adressen anzeigen';sel.append(all);
+ LIVE.addresses.forEach(a=>{const o=document.createElement('option');o.value=a.email;o.textContent=a.email+(a.primary?' (Haupt)':'')+(a.active?'':' (pausiert)');sel.append(o)});
+ if(!LIVE.addresses.some(a=>a.email===LIVE.filter))LIVE.filter='all';
+ sel.value=LIVE.filter}
+
+function setFolder(f){
+ LIVE.folder=f;document.querySelectorAll('#folderTabs button').forEach(b=>b.classList.toggle('active',b.dataset.folder===f));
+ $('inboxTitle').textContent={inbox:'Posteingang',sent:'Gesendet',trash:'Papierkorb'}[f];loadInbox()}
+
+let inboxSeq=0;
+async function loadInbox(more){
+ const box=$('mailInbox');const st=LIVE.status||{};
+ if(!(st.mail&&st.mail.configured)){box.className='empty';box.innerHTML='Noch kein Mailkonto verbunden.<br><button class="btn primary" style="margin-top:12px" onclick="go(\'settings\')">Mailkonto verbinden</button>';$('moreBtn').style.display='none';return}
+ const seq=++inboxSeq;
+ if(!more){box.className='empty';box.innerHTML='<span class="spin"></span> Nachrichten werden geladen …'}
+ const p=new URLSearchParams({folder:LIVE.folder,address:LIVE.filter,q:$('mailSearch').value.trim()});
+ if(more&&LIVE.nextBefore)p.set('before',LIVE.nextBefore);
+ let d;
+ try{d=await api('/api/messages?'+p)}catch(e){if(seq!==inboxSeq)return;box.className='empty';box.textContent=e.message;$('moreBtn').style.display='none';return}
+ if(seq!==inboxSeq)return;
+ LIVE.messages=more?LIVE.messages.concat(d.messages):d.messages;LIVE.nextBefore=d.nextBefore;
+ $('moreBtn').style.display=d.more?'block':'none';renderInbox()}
+
+function renderInbox(){
+ const box=$('mailInbox');const f=LIVE.folder;
+ if(!LIVE.messages.length){box.className='empty';box.textContent=$('mailSearch').value.trim()?'Keine Treffer.':(f==='trash'?'Der Papierkorb ist leer.':f==='sent'?'Noch keine gesendeten Nachrichten.':LIVE.filter==='all'?'Keine Nachrichten im Posteingang.':'Keine Nachrichten an '+LIVE.filter+'.');return}
+ box.className='mlist';box.innerHTML='';
+ const showRcpt=LIVE.filter==='all'&&LIVE.addresses.length>1;
+ LIVE.messages.forEach(m=>{
+  const b=document.createElement('button');b.className='mrow'+(!m.seen&&f!=='sent'?' unread':'');
+  const who=f==='sent'?'An: '+(m.to.map(x=>x.name||x.address).join(', ')||'–'):(m.from.name||m.from.address||'(unbekannt)');
+  let tags='';
+  if(showRcpt&&m.recipient)tags+='<span class="tag alias">'+(f==='sent'?'Von ':'An ')+esc(m.recipient)+'</span>';
+  if(m.attachment)tags+='<span class="tag">📎 Anhang</span>';
+  if(m.answered)tags+='<span class="tag">↩ beantwortet</span>';
+  b.innerHTML='<div class="mtop"><span class="mfrom">'+esc(who)+'</span><span class="mdate">'+esc(fmtDate(m.date))+'</span></div><div class="msub">'+esc(m.subject)+'</div>'+(tags?'<div class="mmeta">'+tags+'</div>':'');
+  b.onclick=()=>openMessage(m.uid);box.append(b)})}
+
+async function openMessage(uid){
+ go('reader');LIVE.current=null;LIVE.remoteImages=false;
+ $('rSubject').textContent='';$('rMeta').innerHTML='<span class="spin"></span> Lädt …';$('rTags').innerHTML='';$('rBody').innerHTML='';$('rActions').innerHTML='';$('rAttCard').style.display='none';$('rImages').style.display='none';
+ try{const m=await api('/api/message?folder='+LIVE.folder+'&uid='+uid);LIVE.current=m;const li=LIVE.messages.find(x=>x.uid===uid);if(li)li.seen=true;renderReader()}
+ catch(e){$('rMeta').textContent=e.message}}
+
+function renderReader(){
+ const m=LIVE.current;
+ $('rSubject').textContent=m.subject;
+ let meta='<b>Von:</b> '+esc(m.from.map(fmtAddr).join(', '))+'<br><b>An:</b> '+esc(m.to.map(fmtAddr).join(', ')||'–');
+ if(m.cc.length)meta+='<br><b>Cc:</b> '+esc(m.cc.map(fmtAddr).join(', '));
+ meta+='<br><b>Datum:</b> '+esc(fmtDate(m.date,true));
+ $('rMeta').innerHTML=meta;
+ $('rTags').innerHTML=m.recipient&&m.folder!=='sent'&&LIVE.addresses.length>1?'<span class="tag alias">Empfangen über '+esc(m.recipient)+'</span>':'';
+ renderReaderBody(false);
+ const atts=m.attachments||[];
+ $('rAttCard').style.display=atts.length?'block':'none';
+ $('rAtts').innerHTML=atts.map(a=>'<div class="att"><a href="/api/attachment?folder='+encodeURIComponent(m.folder)+'&uid='+m.uid+'&idx='+a.idx+'" download="'+esc(a.filename)+'">📎 '+esc(a.filename)+'</a><small class="hint">'+fmtSize(a.size)+'</small></div>').join('');
+ const acts=$('rActions');acts.innerHTML='';
+ const add=(label,cls,fn)=>{const b=document.createElement('button');b.className='btn '+cls;b.textContent=label;b.onclick=fn;acts.append(b)};
+ if(m.folder==='trash'){add('Wiederherstellen','ghost',restoreCurrent);add('Endgültig löschen','danger',deleteCurrent)}
+ else{
+  if(m.folder!=='sent')add('↩ Antworten','primary',()=>startReply(false));
+  if(m.folder!=='sent'&&(m.to.length+m.cc.length)>1)add('Allen antworten','ghost',()=>startReply(true));
+  if(m.folder==='inbox')add('Als ungelesen','ghost',markUnread);
+  add('Löschen','danger',deleteCurrent)}}
+
+function renderReaderBody(remote){
+ const m=LIVE.current;if(!m)return;LIVE.remoteImages=!!remote;const body=$('rBody');body.innerHTML='';
+ if(m.html){
+  const csp="default-src 'none'; img-src data:"+(remote?' https: http:':'')+"; style-src 'unsafe-inline'; font-src data:; media-src data:";
+  const doc='<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="'+csp+'"><meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width,initial-scale=1"><base target="_blank"><style>html,body{margin:0;padding:10px;background:#fff;color:#111;font:15px -apple-system,BlinkMacSystemFont,sans-serif;word-wrap:break-word;overflow-wrap:anywhere}img{max-width:100%;height:auto}table{max-width:100%}</style></head><body>'+m.html+'</body></html>';
+  const wrap=document.createElement('div');wrap.className='rbody';
+  const fr=document.createElement('iframe');fr.setAttribute('sandbox','allow-same-origin allow-popups allow-popups-to-escape-sandbox');fr.setAttribute('referrerpolicy','no-referrer');fr.title='Nachricht';
+  const fit=()=>{try{const h=fr.contentDocument.documentElement.scrollHeight;fr.style.height=Math.min(Math.max(h,120),20000)+'px'}catch(e){fr.style.height='70vh'}};
+  fr.onload=()=>{fit();setTimeout(fit,400);setTimeout(fit,1500)};
+  fr.srcdoc=doc;wrap.append(fr);body.append(wrap);
+  $('rImages').style.display=!remote&&/(<img[^>]+src=["']?https?:|url\(\s*["']?https?:)/i.test(m.html)?'block':'none'}
+ else{const d=document.createElement('div');d.className='rtext';d.innerHTML=linkify(m.text||'(leer)');body.append(d);$('rImages').style.display='none'}}
+
+async function deleteCurrent(){
+ const m=LIVE.current;if(!m)return;
+ if(m.folder==='trash'&&!confirm('Diese Nachricht endgültig löschen? Das kann nicht rückgängig gemacht werden.'))return;
+ try{const r=await api('/api/message/delete',{method:'POST',body:{folder:m.folder,uid:m.uid}});LIVE.messages=LIVE.messages.filter(x=>x.uid!==m.uid);toast(r.permanent?'Endgültig gelöscht':'In den Papierkorb verschoben');go('mail')}
+ catch(e){modal('Löschen fehlgeschlagen',e.message)}}
+async function restoreCurrent(){
+ const m=LIVE.current;
+ try{await api('/api/message/restore',{method:'POST',body:{uid:m.uid}});toast('Zurück im Posteingang');go('mail')}
+ catch(e){modal('Fehler',e.message)}}
+async function markUnread(){
+ const m=LIVE.current;
+ try{await api('/api/message/seen',{method:'POST',body:{folder:m.folder,uid:m.uid,seen:false}});toast('Als ungelesen markiert');go('mail')}
+ catch(e){modal('Fehler',e.message)}}
+
+function ownAddr(a){return LIVE.addresses.some(x=>x.email.toLowerCase()===String(a).toLowerCase())}
+function startReply(all){
+ const m=LIVE.current;
+ const to=(m.replyTo&&m.replyTo.length?m.replyTo:m.from).filter(a=>!ownAddr(a.address));
+ let cc=[];
+ if(all)cc=m.to.concat(m.cc).filter(a=>!ownAddr(a.address)&&!to.some(t=>t.address.toLowerCase()===a.address.toLowerCase()));
+ const sender=m.from[0]||{};
+ const quoted=String(m.text||'').split(/\r?\n/).map(l=>'> '+l).join('\n');
+ LIVE.reply={inReplyTo:m.messageId||'',references:((m.references||'')+' '+(m.messageId||'')).trim(),uid:m.uid,folder:m.folder};
+ openCompose({from:m.replyFrom,note:m.replyFromNote,to:(to.length?to:m.from).map(fmtAddr).join(', '),cc:cc.map(fmtAddr).join(', '),subject:/^(re|aw|antw):/i.test(m.subject)?m.subject:'Re: '+m.subject,text:'\n\nAm '+fmtDate(m.date,true)+' schrieb '+(sender.name||sender.address||'')+':\n'+quoted},true)}
+
+function openCompose(pre,isReply){
+ if(!isReply)LIVE.reply=null;pre=pre||{};
+ const st=LIVE.status||{};if(!(st.mail&&st.mail.configured)){modal('Mailkonto fehlt','Bitte zuerst unter „Mehr“ dein Mailkonto verbinden.');return}
+ const sel=$('cFrom');sel.innerHTML='';
+ LIVE.addresses.filter(a=>a.active).forEach(a=>{const o=document.createElement('option');o.value=a.email;o.textContent=a.email;sel.append(o)});
+ const want=pre.from||(LIVE.filter!=='all'?LIVE.filter:'');
+ if(want&&LIVE.addresses.some(a=>a.email===want&&a.active))sel.value=want;
+ $('cFromNote').textContent=pre.note||'';
+ $('cTo').value=pre.to||'';$('cCc').value=pre.cc||'';$('cSubject').value=pre.subject||'';$('cText').value=pre.text||'';$('cFiles').value='';
+ go('compose');
+ setTimeout(()=>{try{if(isReply){$('cText').focus();$('cText').setSelectionRange(0,0)}else $('cTo').focus()}catch(e){}},80)}
+
+function cancelCompose(){
+ const dirty=$('cTo').value||$('cSubject').value||($('cText').value.trim()&&!LIVE.reply);
+ if(dirty&&!confirm('Entwurf verwerfen?'))return;
+ go(LIVE.reply&&LIVE.current?'reader':'mail')}
+
+function readFileB64(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]||'');r.onerror=()=>rej(new Error('Datei konnte nicht gelesen werden: '+f.name));r.readAsDataURL(f)})}
+
+async function sendMail(){
+ const btn=$('sendBtn');if(btn.disabled)return;
+ if(!$('cTo').value.trim()){modal('Empfänger fehlt','Bitte mindestens eine Empfängeradresse eintragen.');return}
+ if(!$('cSubject').value.trim()&&!confirm('Ohne Betreff senden?'))return;
+ const files=Array.from($('cFiles').files||[]);const total=files.reduce((s,f)=>s+f.size,0);
+ if(total>15*1024*1024){modal('Anhänge zu groß','Alle Anhänge zusammen dürfen höchstens 15 MB groß sein.');return}
+ btn.disabled=true;btn.innerHTML='<span class="spin"></span> Senden';
+ try{
+  const attachments=[];for(const f of files)attachments.push({name:f.name,type:f.type||'application/octet-stream',data:await readFileB64(f)});
+  const body={from:$('cFrom').value,to:$('cTo').value,cc:$('cCc').value,subject:$('cSubject').value,text:$('cText').value,attachments};
+  if(LIVE.reply)Object.assign(body,{inReplyTo:LIVE.reply.inReplyTo,references:LIVE.reply.references,replyToUid:LIVE.reply.uid,replyFolder:LIVE.reply.folder});
+  const r=await api('/api/send',{method:'POST',body});
+  LIVE.reply=null;$('cTo').value='';$('cSubject').value='';$('cText').value='';$('cFiles').value='';
+  toast('Nachricht gesendet');if(r.warnings&&r.warnings.length)modal('Gesendet – mit Hinweis',r.warnings.join(' '));
+  go('mail')}
+ catch(e){modal('Senden fehlgeschlagen',e.message)}
+ finally{btn.disabled=false;btn.textContent='Senden'}}
+
+/* --- Verwaltung im echten Betrieb --- */
+async function renderLiveSettings(){
+ renderMailAccount();renderSecurity()}
+
+function renderMailAccount(edit){
+ const el=$('mailAccountBody');const m=(LIVE.status||{}).mail||{};
+ if(m.configured&&!edit){
+  el.innerHTML='<div class="item"><div><b>'+esc(m.email)+'</b><small>'+esc(m.preset==='gmx'?'GMX FreeMail':'Eigene Servereinstellungen')+' · Empfang '+esc(m.imap.host)+':'+m.imap.port+' · Versand '+esc(m.smtp.host)+':'+m.smtp.port+'</small></div><span class="tag">Verbunden</span></div>'+
+   '<label class="switch"><span>Gesendete Mails im Ordner „Gesendet“ speichern</span><input type="checkbox" id="saveSent" '+(m.saveSent?'checked':'')+' onchange="saveSetting(this.checked)"></label>'+
+   '<p class="hint">Das Passwort des Mailkontos liegt nur verschlüsselt auf deinem AZE-Server und wird nie an den Browser zurückgegeben.</p>'+
+   '<div class="actions"><button class="btn ghost" onclick="renderMailAccount(true)">Zugangsdaten ändern</button><button class="btn danger" onclick="removeMailAccount()">Mailkonto trennen</button></div>';
+  return}
+ el.innerHTML='<p class="hint">Verbinde ein Mailkonto (Start mit 0 €: z. B. GMX FreeMail). Bei GMX vorher im GMX-Postfach unter Einstellungen → „POP3/IMAP Abruf“ den Zugriff per POP3 und IMAP erlauben.</p>'+
+  '<div class="field"><label for="maPreset">Anbieter</label><select id="maPreset" class="input" onchange="$(\'maCustom\').style.display=this.value?\'none\':\'block\'"><option value="gmx">GMX FreeMail</option><option value="">Anderer Anbieter (eigene Servereinstellungen)</option></select></div>'+
+  '<div class="field"><label for="maEmail">E-Mail-Adresse des Kontos</label><input id="maEmail" class="input" type="email" autocapitalize="none" value="'+esc(m.email||'')+'"></div>'+
+  '<div class="field"><label for="maName">Anzeigename (optional)</label><input id="maName" class="input" value="'+esc(m.name||'')+'" placeholder="z. B. Aziz"></div>'+
+  '<div class="field"><label for="maPass">Passwort des Mailkontos'+(m.configured?' (leer lassen = unverändert)':'')+'</label><input id="maPass" class="input" type="password" autocomplete="off"></div>'+
+  '<div id="maCustom" style="display:none"><div class="field"><label for="maImap">Posteingangsserver (IMAP, SSL)</label><div class="formrow" style="margin:0"><input id="maImap" class="input" placeholder="imap.anbieter.de" value="'+esc(m.imap&&m.preset!=='gmx'?m.imap.host:'')+'"><input id="maImapPort" class="input" style="max-width:90px" inputmode="numeric" value="'+(m.imap&&m.preset!=='gmx'?m.imap.port:993)+'"></div></div>'+
+  '<div class="field"><label for="maSmtp">Postausgangsserver (SMTP; 465 = SSL, 587 = STARTTLS)</label><div class="formrow" style="margin:0"><input id="maSmtp" class="input" placeholder="smtp.anbieter.de" value="'+esc(m.smtp&&m.preset!=='gmx'?m.smtp.host:'')+'"><input id="maSmtpPort" class="input" style="max-width:90px" inputmode="numeric" value="'+(m.smtp&&m.preset!=='gmx'?m.smtp.port:465)+'"></div></div></div>'+
+  '<button class="btn primary" id="maBtn" style="width:100%;margin-top:14px" onclick="saveMailAccount()">Verbinden und testen</button><div class="err" id="maErr"></div>'+
+  (m.configured?'<button class="linkbtn" onclick="renderMailAccount()">Abbrechen</button>':'');
+ if(m.configured&&m.preset!=='gmx'){$('maPreset').value='';$('maCustom').style.display='block'}}
+
+async function saveMailAccount(){
+ const btn=$('maBtn');$('maErr').textContent='';btn.disabled=true;btn.innerHTML='<span class="spin"></span> Verbindung wird geprüft …';
+ try{
+  const body={preset:$('maPreset').value,email:$('maEmail').value,name:$('maName').value,password:$('maPass').value,imapHost:$('maImap').value,imapPort:$('maImapPort').value,smtpHost:$('maSmtp').value,smtpPort:$('maSmtpPort').value};
+  await api('/api/mail/account',{method:'POST',body});$('maPass').value='';
+  await refreshStatus();updateHomeStatus();await loadAddresses();renderMailAccount();toast('Mailkonto verbunden');
+ }catch(e){$('maErr').textContent=e.message}
+ finally{if($('maBtn')){$('maBtn').disabled=false;$('maBtn').textContent='Verbinden und testen'}}}
+
+async function removeMailAccount(){
+ if(!confirm('Mailkonto von AZE Mail trennen? Das Postfach beim Anbieter bleibt unverändert; das gespeicherte Passwort wird vom AZE-Server gelöscht.'))return;
+ try{await api('/api/mail/account',{method:'DELETE'});await refreshStatus();updateHomeStatus();await loadAddresses();renderMailAccount();toast('Mailkonto getrennt')}
+ catch(e){modal('Fehler',e.message)}}
+
+async function saveSetting(v){try{await api('/api/settings',{method:'POST',body:{saveSent:v}});await refreshStatus()}catch(e){modal('Fehler',e.message)}}
+
+function deviceName(){const u=navigator.userAgent;return /iPhone/.test(u)?'iPhone':/iPad/.test(u)?'iPad':/(KF[A-Z]{2,}|Silk)/.test(u)?'Fire-Tablet':/Android/.test(u)?'Android-Gerät':/Mac/.test(u)?'Mac':/Windows/.test(u)?'Windows-PC':'Browser'}
+
+async function renderSecurity(){
+ const el=$('securityBody');const st=LIVE.status||{};const dev=getDevice();
+ let devices=[];try{devices=(await api('/api/devices')).devices}catch(e){}
+ const known=dev&&devices.some(d=>d.id===dev.deviceId);
+ let h='<div class="item"><div><b>Angemeldet als '+esc(st.username||'')+'</b><small>Sitzung endet nach 1 Stunde ohne Aktivität (spätestens nach 12 Stunden).</small></div></div>';
+ h+='<h3 style="font-size:15px;margin:16px 0 6px">PIN für dieses Gerät</h3>';
+ if(dev&&known)h+='<p class="hint">Eingerichtet. Nach 5 falschen Eingaben wird die PIN automatisch gelöscht.</p><button class="btn ghost" onclick="removePin()">PIN auf diesem Gerät entfernen</button>';
+ else h+='<p class="hint">Schneller Zugang auf diesem Gerät mit 4–8 Ziffern. Die PIN ersetzt nicht das Passwort und funktioniert nur zusammen mit einem geheimen Schlüssel, der auf diesem Gerät gespeichert wird.</p><div class="formrow"><input id="newPin" class="input" type="password" inputmode="numeric" maxlength="8" placeholder="Neue PIN"><button class="btn primary" onclick="createPin()">PIN einrichten</button></div>';
+ if(devices.length){h+='<h3 style="font-size:15px;margin:16px 0 6px">Geräte mit PIN</h3>'+devices.map(d=>'<div class="item"><div><b>'+esc(d.name)+(dev&&d.id===dev.deviceId?' (dieses Gerät)':'')+'</b><small>Eingerichtet '+esc(fmtDate(d.created,true))+(d.lastUsed?' · zuletzt '+esc(fmtDate(d.lastUsed,true)):'')+'</small></div><button class="btn danger" onclick="removeDevice(\''+esc(d.id)+'\')">×</button></div>').join('')}
+ h+='<h3 style="font-size:15px;margin:16px 0 6px">Passwort ändern</h3><input id="pwOld" class="input" type="password" placeholder="Bisheriges Passwort" autocomplete="current-password"><input id="pwNew" class="input" type="password" placeholder="Neues Passwort (mind. 10 Zeichen)" autocomplete="new-password" style="margin-top:8px"><input id="pwNew2" class="input" type="password" placeholder="Neues Passwort wiederholen" autocomplete="new-password" style="margin-top:8px"><button class="btn ghost" style="width:100%;margin-top:8px" onclick="changePw()">Passwort ändern</button>';
+ h+='<div class="actions"><button class="btn ghost" onclick="logout(false)">Abmelden</button><button class="btn danger" onclick="logout(true)">Überall abmelden</button></div>';
+ el.innerHTML=h}
+
+async function createPin(){
+ const pin=$('newPin').value;
+ try{const d=await api('/api/devices',{method:'POST',body:{pin,name:deviceName()}});setDevice({deviceId:d.deviceId,deviceToken:d.deviceToken});toast('PIN eingerichtet');renderSecurity()}
+ catch(e){modal('PIN',e.message)}}
+async function removePin(){const dev=getDevice();if(dev)await removeDevice(dev.deviceId,true)}
+async function removeDevice(id,silent){
+ if(!silent&&!confirm('PIN-Zugang für dieses Gerät löschen?'))return;
+ try{await api('/api/devices?id='+encodeURIComponent(id),{method:'DELETE'})}catch(e){}
+ const dev=getDevice();if(dev&&dev.deviceId===id)setDevice(null);toast('PIN-Zugang entfernt');renderSecurity()}
+async function changePw(){
+ if($('pwNew').value!==$('pwNew2').value){modal('Passwort','Die neuen Passwörter stimmen nicht überein.');return}
+ try{await api('/api/password',{method:'POST',body:{oldPassword:$('pwOld').value,newPassword:$('pwNew').value}});['pwOld','pwNew','pwNew2'].forEach(i=>$(i).value='');toast('Passwort geändert')}
+ catch(e){modal('Passwort',e.message)}}
+async function logout(all){
+ if(all&&!confirm('Alle Sitzungen auf allen Geräten beenden? PIN-Zugänge bleiben eingerichtet.'))return;
+ try{await api(all?'/api/logout-all':'/api/logout',{method:'POST'})}catch(e){}
+ LIVE.loggedIn=false;LIVE.messages=[];try{await refreshStatus()}catch(e){}showAuth()}
+
+async function testConnection(){
+ const out=$('connResult');out.innerHTML='<span class="spin"></span> Teste beide Wege …';
+ const direct=fetch('https://api.ipify.org?format=json',{cache:'no-store',referrerPolicy:'no-referrer'}).then(r=>r.json()).then(d=>d.ip).catch(()=>null);
+ const server=api('/api/connection/test').catch(e=>({ok:false,error:e.message}));
+ const [dip,s]=await Promise.all([direct,server]);
+ out.innerHTML='<b>Direktverbindung:</b> '+(dip?'IP '+esc(dip):'nicht ermittelbar')+'<br><b>Deutscher Server:</b> '+(s.ok?'IP '+esc(s.ip)+' ('+s.ms+' ms)':'nicht erreichbar – '+esc(s.error||''))+'<br><small>Zum Ermitteln der IP wird einmalig ipify.org abgefragt.</small>'}
+
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&LIVE.on&&LIVE.loggedIn&&$('mail').classList.contains('active'))loadInbox()});
+setInterval(()=>{if(!document.hidden&&LIVE.on&&LIVE.loggedIn&&$('mail').classList.contains('active')&&!$('mailSearch').value)loadInbox()},120000);
+renderAddresses();renderShops();renderWay();initLive();
 </script></body></html>

@@ -2,59 +2,42 @@
 
 **Stand:** 24.11.2026  
 **Repository:** `Postmen1971/AzeMail`  
-**Phase:** HTML-Funktionsprototyp / Anbieterprüfung und Backend-Planung
+**Phase:** Version 1.0 fertig – Inbetriebnahme mit echtem GMX-Konto auf eigenem Server
 
 ## Aktueller Stand
-Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeichert. Die GitHub-Pages-Veröffentlichung muss im Repository aktiviert sein, damit die Seite öffentlich über Safari erreichbar ist.
+Version 1.0 ist fertig: Oberfläche (`index.html`) und AZE-Server (`server/`, Node.js ohne Zusatzpakete). Ohne laufenden Server (GitHub Pages) zeigt die Seite automatisch die bisherige Demo. Mit Server läuft der echte Betrieb. Anleitung: `INSTALLATION.md`.
 
-## Im Frontend-Prototyp vorhanden
-- Mail-Bereich mit vorbereitetem gemeinsamen Posteingang und Auswahlfilter „Alle Adressen“ bzw. einzelne Empfängeradresse (derzeit nur Oberfläche, noch keine echten Nachrichten).
-- Startseite und Navigation: Start, Mail, Browser, Shopping, Verwaltung.
-- Wunschadressen lokal vormerken, pausieren, reaktivieren und löschen.
-- Shop-Favoriten hinzufügen und über externe Browseransicht öffnen.
-- Browser-URL eingeben; Einbettung versuchen und externe Öffnung als Ausweichweg anbieten.
-- Auswahl zwischen „Deutscher Server“ und „Direktverbindung“ als UI-Einstellung.
-- Datenschutz-Hinweise und Funktion zum Löschen der lokalen Prototypdaten.
-- Speicherung der Prototyp-Einstellungen in localStorage; keine eigenen Cookies und keine Geräte-ID-Abfrage.
+## Fertig umgesetzt
+- Ersteinrichtung mit Einrichtungscode, Login mit Passwort, PIN-Schnellzugang pro Gerät (5 Fehlversuche → PIN gelöscht), Geräteliste, Passwort ändern, Abmelden/überall abmelden, Sperre bei vielen Fehlversuchen.
+- Mailkonto verbinden mit Verbindungstest (GMX-Voreinstellung oder eigene IMAP/SMTP-Server, nur verschlüsselt: SSL/TLS oder STARTTLS).
+- Gemeinsamer Posteingang + Filter je Empfängeradresse; Zuordnung jeder Nachricht zu ihrer Empfängeradresse.
+- Ordner Posteingang, Gesendet, Papierkorb; Suche; seitenweises Nachladen; automatisches Aktualisieren.
+- Lesen (Text und HTML in abgesicherter Ansicht, externe Bilder erst auf Wunsch), Anhänge herunterladen.
+- Antworten / Allen antworten mit der passenden Empfängeradresse als Absender; neue Mail mit Anhängen (max. 15 MB); Kopie in „Gesendet“.
+- Löschen in den Papierkorb, Wiederherstellen, endgültiges Löschen nach Bestätigung; Als ungelesen markieren.
+- Adressen hinzufügen, pausieren/aktivieren, nach Bestätigung entfernen.
+- Browser-Weg „Deutscher Server“ (Abruf über den AZE-Server, vereinfachte Ansicht ohne Skripte) und „Verbindung testen“ für beide Wege.
+- Shopping, Einmal-SMS-Linkliste und Datenschutz-Bereich unverändert übernommen.
 
-## Wichtige Einschränkungen
-- Die eingetragenen Mailadressen sind nur lokal vorgemerkt. Es werden dadurch keine echten Postfächer angelegt.
-- Es gibt noch keinen echten Posteingang, Mailversand, Login oder sichere PIN-Anmeldung.
-- Die Browser-Auswahl ändert noch nicht die IP-Adresse. Dafür ist ein echter Proxy-/Browserdienst erforderlich.
-- Eingebettete Webseiten können das Laden in einem iframe blockieren. Die externe Öffnung ist dafür vorgesehen.
-- Shop- und Browserlinks werden zu externen Webseiten geöffnet. Deren eigene Datenverarbeitung liegt außerhalb der Kontrolle der Frontend-Seite.
-- localStorage ist keine Cookie-Datei, speichert aber Daten dauerhaft im Browserprofil des Geräts. Löschen der Website-Daten kann sie entfernen.
+## Getestet
+- `npm test`: 18 Ablauf-Tests gegen einen eingebauten Test-Mailserver (Anmeldung, PIN, Filter, Lesen, Senden, Papierkorb, Neustart, Verschlüsselung der gespeicherten Daten, CSRF- und Proxy-Schutz) und 5 TLS-Tests (IMAP SSL, SMTP SSL und STARTTLS, Zertifikatsprüfung).
+- Oberfläche im Handy-Format automatisiert durchgeklickt (Einrichtung → Konto → Filter → Lesen → Antworten vom Alias → Gesendet → Papierkorb → Abmelden → PIN).
+- **Noch nicht getestet:** Verbindung zu den echten GMX-Servern. Das geht erst nach der Installation mit deinem Konto.
 
-## E-Mail-Anbieter – noch nicht ausgewählt
+## Bekannte Grenzen
+- Ein Mailkonto pro AZE-Installation (mit beliebig vielen Alias-Adressen).
+- Ansicht über den deutschen Server ohne Skripte: viele moderne Shops (Amazon, eBay) funktionieren dort nur eingeschränkt. Dafür „Extern öffnen“.
+- Keine Entwürfe und kein Weiterleiten in Version 1.0.
+- Anzahl möglicher Alias-Adressen hängt vom GMX-Tarif ab.
 
-- Polpo Mail ist vorerst zurückgestellt: eigene Domain erforderlich, private Nutzung und Kostenmodell müssen vor einer Einrichtung geprüft werden.
-- Ziel bleibt zunächst 0 €; keine Domain kaufen und keinen Tarif buchen.
-- GMX FreeMail ist ein möglicher technischer Testkandidat, da IMAP/SMTP offiziell dokumentiert sind. IMAP muss im Konto aktiviert werden.
-- Tuta Free ist für eine direkte Drittanbieter-Integration ungeeignet, da Tuta IMAP/POP3/SMTP ausdrücklich nicht unterstützt.
-- Proton Mail Bridge ist laut Anbieter kostenpflichtigen Tarifen vorbehalten und nicht für Mobilgeräte verfügbar.
-- Vor der Auswahl prüfen wir zusätzlich API/OAuth, Nutzungsbedingungen, sichere Backend-Anbindung und Exportmöglichkeiten.
-- Zugangsdaten und API-Tokens niemals in `index.html`, Browser-JavaScript oder ein öffentliches GitHub-Repository schreiben.
-
-## Festgelegte Mail-Bedienung
-- Ein gemeinsamer Posteingang für alle E-Mail-Adressen.
-- Zusätzlich Filter, um Nachrichten einer einzelnen Empfängeradresse anzuzeigen.
-- Nachrichten werden intern mit ihrer Empfängeradresse verknüpft; beim Antworten soll diese Adresse als Absender vorausgewählt werden.
-
-## Kostenentscheidung
-
-- Verbindliches Arbeitsziel: zunächst 0 €; keine Domain und keinen Tarif kaufen.
-- `aze-mail.de` bleibt eine Wunschdomain, wird aber vorerst nicht registriert.
-- Polpo Mail wird vorerst nicht eingerichtet.
-- Eine Anbieter-Domain ist ausdrücklich akzeptiert; zuerst kostenlose Konten und deren offizielle API-/IMAP-/SMTP-Möglichkeiten prüfen.
+## Kostenentscheidung (unverändert)
+- 0 €: keine Domain, kein Tarif gekauft. `aze-mail.de` bleibt Wunschdomain. Polpo Mail bleibt zurückgestellt.
+- Hosting-Empfehlung ohne Kosten: Oracle Cloud Always Free (Frankfurt) + Tailscale. Alternativ Raspberry Pi oder PC.
 
 ## Als Nächstes
-
-1. Kostenlose Anbieter technisch und nach Nutzungsbedingungen vergleichen; GMX ist erster IMAP/SMTP-Testkandidat.
-2. Einen sicheren Backend-Prototyp planen, der Zugangsdaten niemals an den Browser ausliefert.
-3. Datenmodell für Konten, Empfängeradressen, Nachrichten und Zuordnung festlegen.
-4. Erst nach erfolgreichem Test echte Empfangs- und Versandfunktionen umsetzen.
-5. Danach Login/PIN, Datenschutz- und Sicherheitstest planen.
-6. Den deutschen Proxy-/Browserweg separat technisch spezifizieren; der aktuelle Umschalter ist nur eine UI-Auswahl.
+1. Server einrichten (`INSTALLATION.md`) und GMX-Konto verbinden – erster Echttest.
+2. Alias-Adressen bei GMX anlegen und in AZE Mail eintragen.
+3. Optional: Weiterleiten/Entwürfe, mehrere Mailkonten, Android-App-Hülle.
 
 ## Änderungsprotokoll
 - **23.11.2026:** Erstes Frontend mit Startseite und Konzeptbereichen angelegt.
@@ -69,3 +52,4 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 
 - **24.11.2026:** README und Projektstatus vereinheitlicht: Polpo Mail zurückgestellt, 0-Euro-Start bestätigt, Anbieterentscheidung offen; erste technische Anbieterprüfung dokumentiert.
 - **24.11.2026:** Widersprüchliche Anbieterangaben bereinigt: Polpo Mail ist zurückgestellt, `aze-mail.de` nur Wunschdomain; GMX/IMAP-SMTP als erster technischer Testkandidat, Tuta und Proton Free wegen fehlender passender Drittanbieter-Anbindung vorerst nicht geeignet.
+- **24.11.2026:** Version 1.0: AZE-Server ohne Zusatzpakete (IMAP/SMTP-Client, MIME, Login/PIN mit verschlüsselter Schlüsselablage, Proxy „Deutscher Server“), Oberfläche um echten Mailbetrieb erweitert (Demo-Modus bleibt), Tests, `INSTALLATION.md`, systemd-Dienst.

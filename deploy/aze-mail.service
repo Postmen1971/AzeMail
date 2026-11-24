@@ -1,0 +1,23 @@
+# systemd-Dienst für AZE Mail (Linux-Server, z. B. Oracle Cloud oder Raspberry Pi)
+# Installation: siehe INSTALLATION.md, Schritt 5
+[Unit]
+Description=AZE Mail
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=azemail
+WorkingDirectory=/opt/azemail
+ExecStart=/usr/bin/node /opt/azemail/server/server.js
+Environment=AZE_HOST=127.0.0.1
+Environment=AZE_PORT=8080
+Environment=AZE_BEHIND_HTTPS=1
+Environment=AZE_DATA_DIR=/opt/azemail/data
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/azemail/data
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

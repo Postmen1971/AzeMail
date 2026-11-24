@@ -1,0 +1,6 @@
+# Laufzeitdaten des Servers (verschlüsselte Zugangsdaten, Geräte) – niemals einchecken
+data/
+*.pem
+*.key
+.env
+node_modules/
