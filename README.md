@@ -75,7 +75,7 @@ Geplant ist:
 
 ## 3. Domain und E-Mail-Dienst
 
-Als bevorzugte Projekt-Domain wurde `aze-mail.de` festgelegt. Die Domain ist noch nicht registriert; Verfügbarkeit und Preis müssen vor dem Kauf geprüft werden. Die zugehörigen E-Mail-Adressen würden dann beispielsweise auf `@aze-mail.de` enden.
+`aze-mail.de` bleibt eine Wunschdomain. Sie wird vorerst nicht gekauft. Das aktuelle Budgetziel ist 0 €; deshalb prüfen wir zuerst kostenlose E-Mail-Konten und technische Möglichkeiten ohne eigene Domain.
 
 Zu vergleichen sind:
 - Domainpreis und jährliche Verlängerung.
@@ -91,7 +91,7 @@ Ein eigener Mailserver ist nicht automatisch die beste Lösung. Wir wählen spä
 
 ## 3.1 Ausgewählter E-Mail-Anbieter: Polpo Mail (kostenloser Einstieg)
 
-Als Anbieter für den ersten AZE-Mail-Ausbau wurde Polpo Mail ausgewählt. Die Auswahl gilt für die nächste Test- und Integrationsphase; vor produktiver Nutzung müssen Registrierung, Domain-Verifizierung, technische Tests und Datenschutzprüfung erfolgen.
+Polpo Mail bleibt eine mögliche Option für später, ist aber nicht endgültig ausgewählt. Das Projektziel lautet zunächst: 0 € laufende Kosten und keine Domain kaufen. Polpo verlangt eine bereits registrierte eigene Domain; außerdem sind die Nutzungsbedingungen auf Unternehmen und Organisationen ausgerichtet. Daher vorerst kein Konto anlegen und keine Domain kaufen.
 
 Laut aktueller offizieller Tarifbeschreibung umfasst der kostenlose Tarif:
 - Bis zu 10 Postfächer pro Domain, standardmäßig je 1 GB.
@@ -171,8 +171,9 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 - Keine Zugangsdaten oder echten persönlichen E-Mail-Inhalte in GitHub speichern.
 
 ## 10. Noch offene Fragen
-- Ist `aze-mail.de` verfügbar und bezahlbar? (bevorzugte Domain ist festgelegt, Prüfung noch offen)
-- Bestätigt Polpo schriftlich, dass die Nutzung für unser privates AZE-Mail-Projekt zulässig ist? Die aktuellen Nutzungsbedingungen beschreiben den Dienst als für Unternehmen und Organisationen bestimmt.
+- Lässt sich AZE Mail zunächst ohne eigene Domain und ohne laufende Kosten betreiben?
+- Welche kostenlose Mailbox lässt sich technisch und datenschutzfreundlich anbinden?
+- Ist Polpo für ein privates Projekt zulässig, falls später doch eine eigene Domain vorhanden ist? (bevorzugte Domain ist festgelegt, Prüfung noch offen)
 - Welcher E-Mail-Anbieter erfüllt die Anforderungen?
 - Wie viele echte Postfächer bzw. Aliase werden benötigt und welcher Anbieter unterstützt das gewählte gemeinsame Posteingangsmodell?
 - Welcher Hosting-Anbieter wird verwendet?
