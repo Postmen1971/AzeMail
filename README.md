@@ -91,7 +91,7 @@ Ein eigener Mailserver ist nicht automatisch die beste Lösung. Wir wählen spä
 
 ## 3.1 Ausgewählter E-Mail-Anbieter: Polpo Mail (kostenloser Einstieg)
 
-Polpo Mail bleibt eine mögliche Option für später, ist aber nicht endgültig ausgewählt. Das Projektziel lautet zunächst: 0 € laufende Kosten und keine Domain kaufen. Polpo verlangt eine bereits registrierte eigene Domain; außerdem sind die Nutzungsbedingungen auf Unternehmen und Organisationen ausgerichtet. Daher vorerst kein Konto anlegen und keine Domain kaufen.
+Polpo Mail bleibt eine mögliche Option für später, ist aber nicht endgültig ausgewählt. Das Projektziel lautet zunächst: 0 € laufende Kosten und keine eigene Domain kaufen. Wir dürfen ausdrücklich auch eine vom kostenlosen Anbieter bereitgestellte Domain-Endung nutzen (z. B. @ik.me oder @proton.me). Polpo verlangt eine eigene Domain und wird deshalb vorerst nicht eingerichtet.
 
 Laut aktueller offizieller Tarifbeschreibung umfasst der kostenlose Tarif:
 - Bis zu 10 Postfächer pro Domain, standardmäßig je 1 GB.
@@ -169,6 +169,15 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 - `README.md` als dauerhafte Beschreibung des Ursprungsgedankens pflegen.
 - `PROJECT_STATUS.md` nach größeren Änderungen aktualisieren.
 - Keine Zugangsdaten oder echten persönlichen E-Mail-Inhalte in GitHub speichern.
+
+## 3.2 Kostenlose Anbieter-Domain statt eigener Domain
+
+Der Nutzer hat bestätigt, dass eine Anbieter-Domain als E-Mail-Endung akzeptabel ist. Damit können wir zunächst ohne Kauf einer eigenen Domain starten. Mögliche Kandidaten:
+- Infomaniak my kSuite: kostenlose Adresse mit Anbieter-Endung (z. B. @ik.me, @etik.com oder @ikmail.com), laut Anbieter 20 GB. Aktuell wird auf der deutschen Angebotsseite jedoch eine Warteliste angezeigt; pro Konto ist nur eine kostenlose Adresse vorgesehen.
+- Proton Mail Free: kostenlose Adresse mit @proton.me; die Nutzung einer eigenen Domain ist nicht Teil des Gratis-Tarifs.
+- Tuta Free: kostenlose Adresse mit Anbieter-Endung; keine eigene Domain im Gratis-Tarif.
+
+Die Anbieter sind noch nicht endgültig ausgewählt. Vor der Auswahl testen wir, ob Empfang und Versand funktionieren und ob eine technische Anbindung an AZE Mail möglich ist. Besonders wichtig sind API/IMAP/SMTP-Unterstützung im kostenlosen Tarif. Ein Anbieter-Webmail allein ist noch keine Integration in AZE Mail.
 
 ## 10. Noch offene Fragen
 - Lässt sich AZE Mail zunächst ohne eigene Domain und ohne laufende Kosten betreiben?
