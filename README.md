@@ -1,6 +1,6 @@
 # AZE Mail
 
-> **Status:** HTML-Funktionsprototyp vorhanden; echte Mail- und Proxy-Anbindung noch nicht implementiert.
+> **Status:** Version 1.0 – echter Mailbetrieb (IMAP/SMTP, GMX als erster Anbieter), Login mit Passwort + Geräte-PIN und Browser-Weg „Deutscher Server“ sind umgesetzt. Ohne laufenden AZE-Server (z. B. auf GitHub Pages) zeigt die Seite weiterhin die Demo. **Start: siehe [`INSTALLATION.md`](INSTALLATION.md).**
 
 ## Ursprungsgedanke
 
@@ -190,3 +190,13 @@ Auf ausdrücklichen Wunsch ist im Frontend ein Bereich **„Einmal-SMS“** vorg
 3. **NumberOTP** – Kurzzeit-Aktivierung; PayPal ist nicht bestätigt, Zahlungsmethoden und deutscher Preis vorab prüfen.
 
 AZE Mail integriert ausdrücklich **keinen eigenen SMS-Empfang**: keine eigene Nummer, keine SMS-API, keine SMS-Speicherung und keine kostenpflichtige Buchung durch AZE Mail. Die Links öffnen die Anbieter-Webseiten extern. Die Reihenfolge ist eine Orientierung, keine Garantie für Preis, Verfügbarkeit oder Zustellgeschwindigkeit. Kein Anbieter garantiert einen Registrierungscode innerhalb von zwei Minuten; Plattformen können virtuelle Nummern ablehnen. Nur für unkritische Registrierungen verwenden, nicht für Bank-, Zahlungs- oder wichtige Konten.
+
+## 13. Umsetzung Version 1.0 (24.11.2026)
+
+- **Architektur:** `index.html` (Oberfläche) + `server/` (Node.js, **ohne externe Pakete**). Der Server liefert die Oberfläche aus. Ohne Server bleibt die Seite eine Demo mit lokaler Vormerkung.
+- **Mail:** ein Mailkonto (Start: GMX FreeMail per IMAP/SMTP) plus beliebig viele eigene Adressen (Aliase des Kontos). Ein gemeinsamer Posteingang mit Filter je Empfängeradresse. Zugeordnet wird über die Kopfzeilen Delivered-To, X-Original-To, To und Cc. Was zu keiner eingetragenen Adresse passt, gehört zur Hauptadresse. Ordner: Posteingang, Gesendet, Papierkorb. Lesen, Antworten (Absender = Empfängeradresse der Nachricht), Allen antworten, neue Mail mit Anhängen, Löschen in den Papierkorb, Wiederherstellen, endgültiges Löschen nur nach Bestätigung, Suche.
+- **Alias oder Postfach:** entschieden für **Alias-Adressen eines Kontos**. Sie werden beim Anbieter angelegt und in AZE Mail eingetragen. Pausierte Adressen empfangen weiter und bleiben sichtbar, werden aber nicht als Absender angeboten.
+- **Anmeldung:** Ersteinrichtung mit Einrichtungscode aus dem Server-Fenster. Danach Benutzername + Passwort (mind. 10 Zeichen). PIN (4–8 Ziffern) pro Gerät als Schnellzugang, nach 5 Fehlversuchen gelöscht. Geräteverwaltung, Passwort ändern, Abmelden bzw. überall abmelden.
+- **Datenschutz:** keine Speicherung von Mail-Inhalten auf dem AZE-Server. Mail-Passwort nur verschlüsselt (Schlüssel entsteht erst beim Login). Externe Bilder blockiert, bis man sie freigibt. Nur ein notwendiges Sitzungs-Cookie.
+- **Browser „Deutscher Server“:** Seiten werden über den AZE-Server geladen. Eine besuchte Seite sieht dessen IP. Bewusst als vereinfachte Ansicht **ohne Skripte, Cookies und Logins** (Sicherheit). Für Einkäufe und Logins weiterhin „Extern öffnen“. „Verbindung testen“ zeigt die IP beider Wege.
+- **Hosting (0 €):** empfohlen Oracle Cloud Always Free, Region Frankfurt, erreichbar nur über Tailscale (HTTPS, nicht öffentlich). Alternativ Raspberry Pi oder PC.
