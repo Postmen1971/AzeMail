@@ -75,23 +75,15 @@ Geplant ist:
 
 ## 3. Domain und E-Mail-Dienst
 
-`aze-mail.de` bleibt eine Wunschdomain. Sie wird vorerst nicht gekauft. Das aktuelle Budgetziel ist 0 €; deshalb prüfen wir zuerst kostenlose E-Mail-Konten und technische Möglichkeiten ohne eigene Domain.
+`aze-mail.de` ist als Domain für AZE Mail festgelegt. Die Registrierung und DNS-Konfiguration stehen noch aus. Unser Kostenprinzip lautet: zunächst 0 € laufende Kosten und keine unnötigen Ausgaben. Vor einer Registrierung prüfen wir Verfügbarkeit, Preis und Verlängerungskosten der Domain sowie die technischen Voraussetzungen.
 
-Zu vergleichen sind:
-- Domainpreis und jährliche Verlängerung.
-- Anzahl echter Postfächer und Alias-Adressen.
-- Empfang und Versand.
-- Speicherplatz und Größenlimits.
-- IMAP/SMTP oder API-Unterstützung.
-- Serverstandort, Datenschutz und Auftragsverarbeitung.
-- Export- und Sicherungsmöglichkeiten.
-- Ob pausierte Adressen weiter Nachrichten empfangen können.
+Der ausgewählte Maildienst ist Polpo Mail im kostenlosen Tarif. Die konkrete Einrichtung und ein Funktionstest stehen noch aus. Wir prüfen dabei insbesondere Domain-Verknüpfung, Empfang, Versand, API-Anbindung und die sichere Zuordnung jeder Nachricht zur Empfängeradresse.
 
-Ein eigener Mailserver ist nicht automatisch die beste Lösung. Wir wählen später die möglichst einfache, sichere und bezahlbare Variante.
+Ein eigener Mailserver ist nicht vorgesehen, solange Polpo Mail die Anforderungen erfüllt.
 
 ## 3.1 Ausgewählter E-Mail-Anbieter: Polpo Mail (kostenloser Einstieg)
 
-Polpo Mail bleibt eine mögliche Option für später, ist aber nicht endgültig ausgewählt. Das Projektziel lautet zunächst: 0 € laufende Kosten und keine eigene Domain kaufen. Wir dürfen ausdrücklich auch eine vom kostenlosen Anbieter bereitgestellte Domain-Endung nutzen (z. B. @ik.me oder @proton.me). Polpo verlangt eine eigene Domain und wird deshalb vorerst nicht eingerichtet.
+**Entscheidung:** Wir verwenden Polpo Mail zunächst im kostenlosen Tarif. Als eigene AZE-Mail-Domain ist `aze-mail.de` festgelegt. Die Domain muss noch auf Verfügbarkeit und Kosten geprüft und anschließend registriert sowie mit Polpo Mail verbunden werden. Die Anbieterwahl wird nicht erneut geöffnet, solange bei der Prüfung kein konkretes Ausschlusskriterium auftritt.
 
 Laut aktueller offizieller Tarifbeschreibung umfasst der kostenlose Tarif:
 - Bis zu 10 Postfächer pro Domain, standardmäßig je 1 GB.
@@ -170,21 +162,17 @@ Die konkreten Technologien und Anbieter sind noch offen. Passwörter, API-Schlü
 - `PROJECT_STATUS.md` nach größeren Änderungen aktualisieren.
 - Keine Zugangsdaten oder echten persönlichen E-Mail-Inhalte in GitHub speichern.
 
-## 3.2 Kostenlose Anbieter-Domain statt eigener Domain
+## 3.2 Festgelegte Domain
 
-Der Nutzer hat bestätigt, dass eine Anbieter-Domain als E-Mail-Endung akzeptabel ist. Damit können wir zunächst ohne Kauf einer eigenen Domain starten. Mögliche Kandidaten:
-- Infomaniak my kSuite: kostenlose Adresse mit Anbieter-Endung (z. B. @ik.me, @etik.com oder @ikmail.com), laut Anbieter 20 GB. Aktuell wird auf der deutschen Angebotsseite jedoch eine Warteliste angezeigt; pro Konto ist nur eine kostenlose Adresse vorgesehen.
-- Proton Mail Free: kostenlose Adresse mit @proton.me; die Nutzung einer eigenen Domain ist nicht Teil des Gratis-Tarifs.
-- Tuta Free: kostenlose Adresse mit Anbieter-Endung; keine eigene Domain im Gratis-Tarif.
-
-Die Anbieter sind noch nicht endgültig ausgewählt. Vor der Auswahl testen wir, ob Empfang und Versand funktionieren und ob eine technische Anbindung an AZE Mail möglich ist. Besonders wichtig sind API/IMAP/SMTP-Unterstützung im kostenlosen Tarif. Ein Anbieter-Webmail allein ist noch keine Integration in AZE Mail.
+Die gewünschte Domain für AZE Mail lautet **`aze-mail.de`**. Sie ist beschlossen, aber noch nicht als registriert oder technisch eingerichtet zu behandeln. Vor dem Kauf prüfen wir die tatsächliche Verfügbarkeit und die Kosten. Danach folgen Registrierung, DNS-Einträge und die Verbindung mit Polpo Mail.
 
 ## 10. Noch offene Fragen
-- Lässt sich AZE Mail zunächst ohne eigene Domain und ohne laufende Kosten betreiben?
-- Welche kostenlose Mailbox lässt sich technisch und datenschutzfreundlich anbinden?
-- Ist Polpo für ein privates Projekt zulässig, falls später doch eine eigene Domain vorhanden ist? (bevorzugte Domain ist festgelegt, Prüfung noch offen)
-- Welcher E-Mail-Anbieter erfüllt die Anforderungen?
-- Wie viele echte Postfächer bzw. Aliase werden benötigt und welcher Anbieter unterstützt das gewählte gemeinsame Posteingangsmodell?
+- Ist `aze-mail.de` zum gewünschten Preis verfügbar und welche Verlängerungskosten entstehen?
+- Sind die genannten Polpo-Mail-Funktionen und Tarifbedingungen zum Zeitpunkt der Einrichtung weiterhin gültig?
+- Ist die private Nutzung nach den aktuellen Polpo-Nutzungsbedingungen zulässig?
+- Wie werden Domain, DNS und Polpo Mail korrekt miteinander verbunden?
+- Wie werden Empfang, Versand, API und die Zuordnung der Empfängeradressen technisch getestet?
+- Wie sichern und exportieren wir wichtige Nachrichten unabhängig vom kostenlosen Dienst?
 - Welcher Hosting-Anbieter wird verwendet?
 - Wie wird der deutsche Browser-Proxy technisch umgesetzt?
 - Wie genau soll der direkte Verbindungsweg aussehen?
@@ -195,3 +183,16 @@ Die Anbieter sind noch nicht endgültig ausgewählt. Vor der Auswahl testen wir,
 
 ---
 **Leitlinie:** Der ursprüngliche Zweck von AZE Mail soll bei jeder Änderung erhalten bleiben: mehrere verwaltbare E-Mail-Adressen, direkt lesbare E-Mails, ein integrierter Browser, zwei bewusst auswählbare Verbindungswege und möglichst wenig unnötige Datenerfassung.
+
+
+## 11. Verbindliche Projektentscheidungen und Arbeitsregel
+
+- **E-Mail-Anbieter:** Polpo Mail, kostenloser Tarif als festgelegte Ausgangsbasis.
+- **Tarifumfang laut bisheriger Prüfung:** bis zu 10 Postfächer mit jeweils 1 GB, bis zu 5 Aliase, Catch-all, API, IMAP und SMTP. Vor der Einrichtung werden Umfang und Bedingungen nochmals anhand der offiziellen Anbieterinformationen geprüft; diese Angaben sind keine Garantie für unveränderte künftige Tarife.
+- **Domain:** `aze-mail.de` ist als AZE-Mail-Domain festgelegt. Verfügbarkeit, Registrierung und technische Einrichtung sind noch offen.
+- **Kosten:** Ziel ist zunächst ein Betrieb ohne laufende Kosten. Kosten für die Domain dürfen erst nach Prüfung der Verfügbarkeit und des Preises entstehen.
+- **Posteingang:** gemeinsamer Posteingang für alle Adressen plus Filter pro Adresse. Jede Nachricht muss ihrer tatsächlichen Empfängeradresse zugeordnet bleiben.
+- **Weiterentwicklung:** Bestehende Dateien, Funktionen, Entscheidungen und der bisherige Entwicklungsstand werden fortgeführt. Keine Neuerstellung von Grund auf und kein Überschreiben funktionierender Bereiche ohne sachlichen Grund.
+- **Dokumentation:** Diese `README.md` ist die zentrale Beschreibung des vollständigen Projektziels und der getroffenen Grundsatzentscheidungen. Größere Änderungen und der jeweilige Umsetzungsstand werden zusätzlich in `PROJECT_STATUS.md` dokumentiert.
+
+**Wichtig für jeden weiteren Arbeitsschritt:** Vor Änderungen am Code zuerst den aktuellen Repository-Stand prüfen. Danach gezielt ergänzen, testen und committen. Bereits vereinbarte Ziele und Entscheidungen bleiben bestehen, sofern der Nutzer sie nicht ausdrücklich ändert.
