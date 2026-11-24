@@ -58,3 +58,6 @@ Die erste funktionsfähige Frontend-Prototypversion ist in `index.html` gespeich
 - **24.11.2026:** Gemeinsamer Posteingang plus Filter je Empfängeradresse als verbindliches Bedienmodell festgelegt; entsprechende Oberfläche vorbereitet und Projektbeschreibung aktualisiert.
 - **24.11.2026:** Polpo Mail als mögliche spätere Option dokumentiert; Gratis-Tarifgrenzen, Domainpflicht und Nutzungsbedingungen geprüft.
 - **24.11.2026:** Kostenentscheidung präzisiert: AZE Mail startet mit Zielbudget 0 €; eine Anbieter-Domain ist ausdrücklich akzeptiert. Kostenlose Anbieter-Konten und ihre Integrationsmöglichkeiten werden zuerst geprüft.
+
+
+- **24.11.2026:** Bereich „Einmal-SMS“ als reine externe Linkliste mit Quackr, SMS-Virtual und NumberOTP ergänzt. Keine SMS-API, keine eigene Nummer, keine SMS-Speicherung und keine Zahlung über AZE Mail. Reihenfolge und Einschränkungen sind im Frontend erklärt; Verfügbarkeit, Preise und Zustellzeiten sind nicht garantiert.
